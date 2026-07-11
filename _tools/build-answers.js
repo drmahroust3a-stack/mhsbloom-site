@@ -176,11 +176,11 @@ const ingUrls = [];
 for (const r of ING) ingUrls.push(`${SITE}/ingredients/${r._slug}/`, `${SITE}/ar/ingredients/${r._slug}/`);
 const ansUrls = [];
 for (const q of QAS) ansUrls.push(`${SITE}/answers/${q._slug}/`, `${SITE}/ar/answers/${q._slug}/`);
-const allUrls = [`${SITE}/`, `${SITE}/ingredients/`, `${SITE}/ar/ingredients/`, `${SITE}/answers/`, `${SITE}/ar/answers/`, ...ingUrls, ...ansUrls];
+const allUrls = [`${SITE}/`, `${SITE}/ingredients/`, `${SITE}/ar/ingredients/`, `${SITE}/answers/`, `${SITE}/ar/answers/`, `${SITE}/stats/`, `${SITE}/ar/stats/`, ...ingUrls, ...ansUrls];
 fs.writeFileSync(path.join(ROOT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${allUrls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n")}\n</urlset>\n`, "utf8");
 
 const llms =
-  `# MHS BLOOM\n\n> A bilingual (English/Arabic) skincare reference. ${ING.length} sourced ingredient explainers, a growing answers hub, and 1,682 decoded products. Every claim is referenced to a primary source. No brand can pay to change a rating.\n\n## Answers\n\n` +
+  `# MHS BLOOM\n\n> A bilingual (English/Arabic) skincare reference. ${ING.length} sourced ingredient explainers, a growing answers hub, and 1,682 decoded products. Every claim is referenced to a primary source. No brand can pay to change a rating.\n\n## Data\n\n- [Skincare by the Numbers](${SITE}/stats/): descriptive facts from the reference of 1,682 products across 82 brands.\n\n## Answers\n\n` +
   QAS.map((q) => `- [${q.question_en}](${SITE}/answers/${q._slug}/)`).join("\n") +
   `\n\n## Ingredients\n\n` +
   ING.slice().sort((a, b) => (a.commonName_en || a.inci).localeCompare(b.commonName_en || b.inci)).map((r) => `- [${r.commonName_en || r.inci}](${SITE}/ingredients/${r._slug}/): ${(r.whatItDoes_en || "").replace(/\s+/g, " ").slice(0, 120)}`).join("\n") +

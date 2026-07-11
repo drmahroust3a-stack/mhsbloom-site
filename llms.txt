@@ -2,6 +2,10 @@
 
 > A bilingual (English/Arabic) skincare reference. 19 sourced ingredient explainers, a growing answers hub, and 1,682 decoded products. Every claim is referenced to a primary source. No brand can pay to change a rating.
 
+## Data
+
+- [Skincare by the Numbers](https://mhsbloom.com/stats/): descriptive facts from the reference of 1,682 products across 82 brands.
+
 ## Answers
 
 - [Can I use retinaldehyde (retinal) together with niacinamide?](https://mhsbloom.com/answers/can-i-use-retinaldehyde-together-with-niacinamide/)
