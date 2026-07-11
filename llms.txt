@@ -49,6 +49,10 @@
 - [Vitamin E (alpha-tocopherol)](https://mhsbloom.com/ingredients/tocopherol/): A fat-soluble antioxidant that supports the look of the skin's lipid barrier and helps neutralize free radicals, helping
 - [Zinc Oxide (mineral / inorganic UV filter)](https://mhsbloom.com/ingredients/zinc-oxide/): A mineral UV filter that helps shield the look of skin across both UVA and UVB; also used as a gentle skin protectant in
 
+## Products
+
+- [Products, decoded](https://mhsbloom.com/products/): 190 skincare products decoded (brand, key ingredients, who it suits) — growing daily.
+
 ## About
 
 - [MHS BLOOM](https://mhsbloom.com/): the app — App Store & Google Play
