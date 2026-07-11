@@ -1,0 +1,29 @@
+# MHS BLOOM
+
+> A bilingual (English/Arabic) skincare reference. 19 sourced ingredient explainers and 1,682 decoded products. Every claim is referenced to a primary source. No brand can pay to change a rating.
+
+## Ingredients
+
+- [Allantoin](https://mhsbloom.com/ingredients/allantoin/): A gentle soothing and skin-conditioning ingredient that helps calm and protect the skin's surface and supports a smoothe
+- [Alpha Arbutin](https://mhsbloom.com/ingredients/alpha-arbutin/): A gentle brightening ingredient that helps soften the look of dark spots and even out the appearance of skin tone over t
+- [Avobenzone](https://mhsbloom.com/ingredients/butyl-methoxydibenzoylmethane/): An organic (chemical) UV filter that absorbs UVA light, the wavelengths most associated with the look of premature skin 
+- [Azelaic Acid](https://mhsbloom.com/ingredients/azelaic-acid/): A multitasking acid that helps the look of redness and bumps, supports a more even-looking tone by fading the appearance
+- [Bakuchiol (plant-derived retinol-alternative)](https://mhsbloom.com/ingredients/bakuchiol/): A plant-derived ingredient often used as a gentler, retinol-like option in skincare for the look of fine lines, more eve
+- [Centella Asiatica (Cica / Gotu Kola / Tiger Grass)](https://mhsbloom.com/ingredients/centella-asiatica-extract/): A calming plant extract used to soothe the look of redness, support a comfortable skin barrier, and help skin look smoot
+- [Ceramides](https://mhsbloom.com/ingredients/ceramide-np/): Skin-identical barrier lipids that help skin hold water and look calm and less reactive.
+- [Glycerin (Glycerol)](https://mhsbloom.com/ingredients/glycerin/): A humectant that pulls water into the upper skin and holds it there, helping skin look and feel hydrated and supple.
+- [Hyaluronic Acid (HA)](https://mhsbloom.com/ingredients/sodium-hyaluronate/): A humectant that draws and holds water in the upper skin layers, leaving skin feeling plumper and more hydrated. It is n
+- [L-Ascorbic Acid (Vitamin C)](https://mhsbloom.com/ingredients/ascorbic-acid/): A water-soluble antioxidant that helps brighten uneven tone, supports the look of firmness by aiding the skin's collagen
+- [Niacinamide (Vitamin B3, nicotinamide)](https://mhsbloom.com/ingredients/niacinamide/): A water-soluble form of vitamin B3 that supports the look of a healthy skin barrier, helps the appearance of even tone, 
+- [Panthenol (Pro-Vitamin B5)](https://mhsbloom.com/ingredients/panthenol/): A water-attracting, barrier-soothing ingredient that helps skin hold moisture and feel calmer and smoother.
+- [Retinaldehyde (Retinal)](https://mhsbloom.com/ingredients/retinal/): A vitamin A form (retinoid) used in skincare to support the look of smoother texture, softer fine lines, more even tone,
+- [Salicylic Acid (BHA — beta hydroxy acid)](https://mhsbloom.com/ingredients/salicylic-acid/): An oil-soluble exfoliant that works inside pores to lift away dead surface cells and excess oil, supporting the look of 
+- [Squalane (saturated, shelf-stable form of squalene; sourced from olive or sugarcane)](https://mhsbloom.com/ingredients/squalane/): A lightweight, skin-identical emollient that softens the look and feel of skin and helps slow water loss, with a dry, no
+- [Tranexamic Acid (TXA / TA)](https://mhsbloom.com/ingredients/tranexamic-acid/): A calming, brightening ingredient used in skincare to even out the look of skin tone and soften the appearance of dark p
+- [Urea (Carbamide)](https://mhsbloom.com/ingredients/urea/): A water-binding humectant at lower strengths and a gentle keratolytic (softens and helps shed rough, dry-looking skin) a
+- [Vitamin E (alpha-tocopherol)](https://mhsbloom.com/ingredients/tocopherol/): A fat-soluble antioxidant that supports the look of the skin's lipid barrier and helps neutralize free radicals, helping
+- [Zinc Oxide (mineral / inorganic UV filter)](https://mhsbloom.com/ingredients/zinc-oxide/): A mineral UV filter that helps shield the look of skin across both UVA and UVB; also used as a gentle skin protectant in
+
+## About
+
+- [MHS BLOOM](https://mhsbloom.com/): the app — App Store & Google Play
