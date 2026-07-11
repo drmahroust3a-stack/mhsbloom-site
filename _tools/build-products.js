@@ -19,6 +19,8 @@ const APP_STORE = "https://apps.apple.com/app/mhs-bloom/id6778931238";
 const PLAY_STORE = "https://play.google.com/store/apps/details?id=com.mhsynaptix.bloom";
 const SAMPLE_IDS = ["NEU-BB-GELCREAM", "LRP-EF-GEL", "CRV-MO-CREAM", "PC-SP-BHA", "BIO-SEN-GEL"];
 const sampleOnly = process.argv.includes("--sample");
+const CONTACT = "mhsynaptix@gmail.com"; // public contact / corrections / complaints
+const REG = '<sup class="reg">®</sup>'; // registered-trademark mark after brand names
 
 const esc = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const plain = (s) => String(s || "").replace(/<[^>]+>/g, "");
@@ -89,8 +91,11 @@ h2{font-size:16px;color:var(--rose-deep);margin:22px 0 8px;text-transform:upperc
 .cta a.alt{background:var(--card);color:var(--rose-deep);border:1px solid var(--rose);}
 .cta a:hover{background:var(--rose-deep);}
 .rel a{color:var(--rose-deep);}
-.disc{font-size:12.5px;color:var(--muted);font-style:italic;border-top:1px solid var(--line);margin-top:24px;padding-top:12px;}
-footer{text-align:center;font-size:12px;color:var(--muted);margin-top:26px;}footer a{color:var(--muted);}
+.reg{font-size:.62em;vertical-align:super;color:var(--muted);font-weight:400;}
+.about{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-top:24px;font-size:12.5px;color:var(--muted);line-height:1.7;}
+.about b{color:var(--rose-deep);}
+.about a{color:var(--rose-deep);}
+footer{text-align:center;font-size:12px;color:var(--muted);margin-top:22px;}footer a{color:var(--muted);}
 `;
 
 function productPage(p, lang) {
@@ -105,10 +110,16 @@ function productPage(p, lang) {
   const texL = clabel(TEX, p.texture, lang);
   const scentL = clabel(SCENT, p.scentProfile, lang);
 
-  // lede: direct "what is X" answer for AI extraction
+  const brandR = esc(brand) + REG; // brand with ® for display
+  // lede: direct "what is X" answer for AI extraction (brandR for display; a plain copy is derived for meta/JSON-LD)
   const lede = en
-    ? `${esc(p.name)} is a ${esc(catL)} by ${esc(brand)}${line ? `, part of the ${esc(line)} range` : ""}. It has a ${esc(texL)} texture${p.scentProfile !== "none" ? ` and is ${esc(scentL)}` : ""}${p.size ? `, in a ${esc(p.size)} size` : ""}.`
-    : `${esc(p.name)} هو ${esc(catL)} من ${esc(brand)}${line ? `، ضمن مجموعة ${esc(line)}` : ""}. قوامه ${esc(texL)}${p.scentProfile !== "none" ? ` و${esc(scentL)}` : ""}${p.size ? `، بحجم ${esc(p.size)}` : ""}.`;
+    ? `${esc(p.name)} is a ${esc(catL)} by ${brandR}${line ? `, part of the ${esc(line)} range` : ""}. It has a ${esc(texL)} texture${p.scentProfile !== "none" ? ` and is ${esc(scentL)}` : ""}${p.size ? `, in a ${esc(p.size)} size` : ""}.`
+    : `${esc(p.name)} هو ${esc(catL)} من ${brandR}${line ? `، ضمن مجموعة ${esc(line)}` : ""}. قوامه ${esc(texL)}${p.scentProfile !== "none" ? ` و${esc(scentL)}` : ""}${p.size ? `، بحجم ${esc(p.size)}` : ""}.`;
+  const ledeDesc = plain(lede).replace(/®/g, "").replace(/\s+/g, " ").trim(); // clean text for meta + JSON-LD
+
+  const about = en
+    ? `<b>About this page.</b> MHS BLOOM is an <b>independent</b> skincare reference. This is an independent editorial review for identification and reference only — we are <b>not affiliated with, authorised by, endorsed by, or sponsored by</b> ${esc(brand)} or any brand or manufacturer, and no brand can pay to change a rating. All brand and product names are the trademarks or registered trademarks of their respective owners, used here for identification purposes only. Ingredient details follow the manufacturer's packaging and may change — always check the product's own label. Questions, corrections or complaints: <a href="mailto:${CONTACT}?subject=MHS%20BLOOM%20—%20${encodeURIComponent(p.name)}">${CONTACT}</a>.`
+    : `<b>عن هذه الصفحة.</b> MHS BLOOM مرجع <b>مستقل</b> للعناية بالبشرة. وهذه مراجعة تحريرية مستقلة لغرض التعريف والاسترشاد فقط — <b>لسنا تابعين لأي علامة أو شركة مصنّعة ولا مرخّصين أو مموّلين منها</b> (بما فيها ${esc(brand)})، ولا يمكن لأي علامة أن تدفع لتغيير تقييم. جميع أسماء العلامات والمنتجات علامات تجارية أو علامات تجارية مسجّلة تعود لأصحابها، وتُستخدم هنا لغرض التعريف فقط. معلومات المكونات تتبع عبوة الشركة المصنّعة وقد تتغيّر — راجعي دائمًا ملصق المنتج نفسه. للاستفسارات أو التصحيحات أو الشكاوى: <a href="mailto:${CONTACT}?subject=MHS%20BLOOM%20—%20${encodeURIComponent(p.name)}">${CONTACT}</a>.`;
 
   const L = en
     ? { kicker: "Product, decoded", home: "Home", prods: "Products", ings: "Key ingredients", suited: "Best suited to", focus: "Focus areas", glance: "At a glance", format: "Format", scent: "Fragrance", size: "Size", use: "When to use", price: "Price tier", from: "More from", gate: `Is ${p.name} right for YOUR skin? BLOOM's full verdict — plus how it compares and fits your routine — is in the app.`, get: "Get MHS BLOOM", alt: "Also on Android", disc: "This page describes catalogued attributes of the product for reference; it is not an efficacy or safety claim, and not medical advice. Ingredient lists follow the manufacturer's packaging.", lang: "العربية" }
@@ -133,7 +144,7 @@ function productPage(p, lang) {
 
   const body = `
 <div class="top"><a class="brand" href="${en ? SITE : SITE + "/ar/"}">MHS <span>BLOOM</span></a><a class="langlink" href="${altHref}">${L.lang}</a></div>
-<div class="crumb"><a href="${en ? SITE + "/" : SITE + "/ar/"}">${L.home}</a> › <a href="${en ? SITE + "/products/" : SITE + "/ar/products/"}">${L.prods}</a> › ${esc(brand)}</div>
+<div class="crumb"><a href="${en ? SITE + "/" : SITE + "/ar/"}">${L.home}</a> › <a href="${en ? SITE + "/products/" : SITE + "/ar/products/"}">${L.prods}</a> › ${brandR}</div>
 <div class="kicker">${L.kicker}</div>
 <h1>${esc(p.name)}</h1>
 <p class="lede">${lede}</p>
@@ -150,9 +161,10 @@ ${p.priceRange ? `<tr><td>${L.price}</td><td>${esc(clabel(PRICE, p.priceRange, l
 </table>
 <div class="gate"><div class="lock">🔒 ${en ? "IN THE APP" : "في التطبيق"}</div><p>${esc(L.gate)}</p>
 <div class="cta"><a href="${APP_STORE}">${L.get}</a><a class="alt" href="${PLAY_STORE}">${L.alt}</a></div></div>
-${related ? `<h2>${L.from} ${esc(brand)}</h2><div class="rel">${related}</div>` : ""}
+${related ? `<h2>${L.from} ${brandR}</h2><div class="rel">${related}</div>` : ""}
 <div class="disc">${esc(L.disc)}</div>
-<footer>© 2026 MH-SYNAPTIX · <a href="${SITE}/">mhsbloom.com</a> · <a href="https://www.instagram.com/mhs_bloom">Instagram</a></footer>`;
+<div class="about">${about}</div>
+<footer>© 2026 MH-SYNAPTIX · <a href="${SITE}/">mhsbloom.com</a> · <a href="https://www.instagram.com/mhs_bloom">Instagram</a> · <a href="mailto:${CONTACT}">${CONTACT}</a></footer>`;
 
   const jsonld = {
     "@context": "https://schema.org",
@@ -160,7 +172,7 @@ ${related ? `<h2>${L.from} ${esc(brand)}</h2><div class="rel">${related}</div>` 
     name: p.name,
     brand: { "@type": "Brand", name: p._brand },
     category: clabel(CAT, p.categoryId, "en"),
-    description: plain(lede),
+    description: ledeDesc,
     inLanguage: lang,
     url: canonical,
     additionalProperty: (p.keyIngredients || []).map((k) => ({ "@type": "PropertyValue", name: "Key ingredient", value: k })),
@@ -172,13 +184,13 @@ ${related ? `<h2>${L.from} ${esc(brand)}</h2><div class="rel">${related}</div>` 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(p.name)} — ${esc(brand)} | MHS BLOOM</title>
-<meta name="description" content="${esc(plain(lede)).slice(0, 155)}">
+<meta name="description" content="${esc(ledeDesc).slice(0, 155)}">
 <link rel="canonical" href="${canonical}">
 <link rel="alternate" hreflang="${lang}" href="${canonical}">
 <link rel="alternate" hreflang="${en ? "ar" : "en"}" href="${altHref}">
 <link rel="alternate" hreflang="x-default" href="${canonical}">
 <meta property="og:title" content="${esc(p.name)} — ${esc(brand)}">
-<meta property="og:description" content="${esc(plain(lede)).slice(0, 155)}">
+<meta property="og:description" content="${esc(ledeDesc).slice(0, 155)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="MHS BLOOM">
 <style>${CSS}</style>
