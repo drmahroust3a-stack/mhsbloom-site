@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mhsbloom.com/</loc></url>
+  <url><loc>https://mhsbloom.com/ingredients/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/ingredients/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/</loc></url>
   <url><loc>https://mhsbloom.com/ingredients/retinal/</loc></url>
   <url><loc>https://mhsbloom.com/ar/ingredients/retinal/</loc></url>
   <url><loc>https://mhsbloom.com/ingredients/ascorbic-acid/</loc></url>
@@ -38,7 +43,40 @@
   <url><loc>https://mhsbloom.com/ar/ingredients/urea/</loc></url>
   <url><loc>https://mhsbloom.com/ingredients/glycerin/</loc></url>
   <url><loc>https://mhsbloom.com/ar/ingredients/glycerin/</loc></url>
-  <url><loc>https://mhsbloom.com/ingredients/</loc></url>
-  <url><loc>https://mhsbloom.com/ar/ingredients/</loc></url>
-  <url><loc>https://mhsbloom.com/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/can-i-use-retinaldehyde-together-with-niacinamide/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/can-i-use-retinaldehyde-together-with-niacinamide/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/should-i-use-bakuchiol-and-a-retinoid-together/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/should-i-use-bakuchiol-and-a-retinoid-together/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/can-i-layer-several-brightening-actives-together-like-alpha-arbutin-tr/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/can-i-layer-several-brightening-actives-together-like-alpha-arbutin-tr/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/what-is-niacinamide-and-what-does-it-do-for-skin/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/what-is-niacinamide-and-what-does-it-do-for-skin/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/which-ingredient-helps-the-look-of-dryness/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/which-ingredient-helps-the-look-of-dryness/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/which-ingredient-helps-the-look-of-blemished-looking-skin/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/which-ingredient-helps-the-look-of-blemished-looking-skin/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/which-ingredient-helps-the-look-of-fine-lines/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/which-ingredient-helps-the-look-of-fine-lines/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/which-skincare-ingredients-should-i-be-careful-with-during-pregnancy-o/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/which-skincare-ingredients-should-i-be-careful-with-during-pregnancy-o/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/which-ingredients-can-make-my-skin-more-sensitive-to-the-sun/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/which-ingredients-can-make-my-skin-more-sensitive-to-the-sun/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/should-i-patch-test-new-skincare-and-which-ingredients-most-need-it/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/should-i-patch-test-new-skincare-and-which-ingredients-most-need-it/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/who-should-be-careful-with-salicylic-acid/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/who-should-be-careful-with-salicylic-acid/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/is-centella-safe-and-who-should-be-careful-with-it/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/is-centella-safe-and-who-should-be-careful-with-it/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/im-new-to-retinoids-how-do-i-start-one-gently-without-wrecking-my-skin/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/im-new-to-retinoids-how-do-i-start-one-gently-without-wrecking-my-skin/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/which-active-ingredients-should-i-use-in-the-morning-and-which-at-nigh/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/which-active-ingredients-should-i-use-in-the-morning-and-which-at-nigh/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/why-does-everyone-say-i-must-wear-sunscreen-when-i-use-a-retinoid-exfo/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/why-does-everyone-say-i-must-wear-sunscreen-when-i-use-a-retinoid-exfo/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/whats-the-safest-way-to-add-a-new-active-to-my-routine-as-a-beginner/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/whats-the-safest-way-to-add-a-new-active-to-my-routine-as-a-beginner/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/is-there-a-gentler-retinol-like-option-if-my-skin-is-sensitive-or-im-n/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/is-there-a-gentler-retinol-like-option-if-my-skin-is-sensitive-or-im-n/</loc></url>
+  <url><loc>https://mhsbloom.com/answers/can-i-use-a-retinoid-and-an-exfoliating-acid-like-salicylic-acid-at-th/</loc></url>
+  <url><loc>https://mhsbloom.com/ar/answers/can-i-use-a-retinoid-and-an-exfoliating-acid-like-salicylic-acid-at-th/</loc></url>
 </urlset>
