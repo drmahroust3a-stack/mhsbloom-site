@@ -3,6 +3,7 @@
 // plus /answers/ index (both langs), all with QAPage/FAQ JSON-LD for answer engines.
 // Also refreshes sitemap.xml + llms.txt to include ingredients AND answers.
 const fs = require("fs");
+const T = require("./theme");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
@@ -73,12 +74,18 @@ function shell({ lang, dir, title, desc, canonical, altHref, altLang, jsonld, bo
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="MHS BLOOM">
-<style>${CSS}</style>
+${T.FONTS}
+<style>${CSS}${T.css(lang)}</style>
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
 </head>
-<body><div class="wrap">
+<body>
+${T.nav(lang, altHref)}
+<div class="wrap">
 ${body}
-</div></body></html>`;
+</div>
+${T.footer(lang)}
+${T.REVEAL_JS}
+</body></html>`;
 }
 
 // map ingredient slug -> localized name for related links
@@ -100,10 +107,6 @@ function answerPage(q, lang) {
   const src = (q.sources || []).map((s) => `<li><a href="${esc(s.url)}" rel="nofollow noopener" target="_blank">${esc(s.title)}</a></li>`).join("");
 
   const body = `
-<div class="top">
-  <a class="brand" href="${en ? SITE : SITE + "/ar/"}">MHS <span>BLOOM</span></a>
-  <a class="langlink" href="${altHref}">${L.lang}</a>
-</div>
 <div class="crumb"><a href="${en ? SITE + "/" : SITE + "/ar/"}">${L.home}</a> › <a href="${en ? SITE + "/answers/" : SITE + "/ar/answers/"}">${L.ans}</a></div>
 <h1>${esc(question)}</h1>
 <div class="answer">${esc(answer)}</div>
@@ -115,7 +118,7 @@ function answerPage(q, lang) {
 ${related ? `<h2>${L.related}</h2><div class="rel">${related}</div>` : ""}
 ${src ? `<h2>${L.sources}</h2><div class="sources"><ol>${src}</ol></div>` : ""}
 <div class="disc">${esc(L.disc)}</div>
-<footer>© 2026 MH-SYNAPTIX · <a href="${SITE}/">mhsbloom.com</a> · <a href="https://www.instagram.com/mhs_bloom">Instagram</a></footer>`;
+`;
 
   const jsonld = {
     "@context": "https://schema.org",
@@ -143,10 +146,9 @@ function indexPage(lang) {
     : { title: "إجابات العناية بالبشرة", sub: "إجابات مباشرة وموثّقة للأسئلة اللي الناس بتسألها فعلاً. كل معلومة بمصدرها.", lang: "English" };
   const items = QAS.map((q) => `<a href="${en ? SITE + "/answers/" + q._slug + "/" : SITE + "/ar/answers/" + q._slug + "/"}">${esc(en ? q.question_en : q.question_ar)}</a>`).join("\n");
   const body = `
-<div class="top"><a class="brand" href="${en ? SITE : SITE + "/ar/"}">MHS <span>BLOOM</span></a><a class="langlink" href="${altHref}">${L.lang}</a></div>
 <h1>${esc(L.title)}</h1><div class="sub">${esc(L.sub)}</div>
 <div class="qlist">${items}</div>
-<footer>© 2026 MH-SYNAPTIX · <a href="${SITE}/">mhsbloom.com</a></footer>`;
+`;
   const jsonld = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

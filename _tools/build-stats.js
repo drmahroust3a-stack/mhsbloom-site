@@ -3,6 +3,7 @@
 // Compliance: descriptive COUNTS only ("labelled fragrance-free", "catalogued as sunscreens") —
 // never efficacy/safety claims. Frame everything as "in MHS BLOOM's reference".
 const fs = require("fs");
+const T = require("./theme");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
@@ -88,13 +89,12 @@ function buildPage(lang) {
     : { title: "العناية بالبشرة بالأرقام", sub: `حقائق وصفية من مرجع MHS BLOOM الذي يضم ${P.toLocaleString()} منتج مفكوك عبر ${B} براند. أعداد فقط — ولا براند يقدر يدفع عشان يغيّر تقييم.`, note: "دي أرقام وصفية عن المنتجات المُدرَجة في مرجع MHS BLOOM، وليست ادعاءات فعالية أو أمان. مرجع تجميلي فقط.", get: "حمّلي MHS BLOOM", alt: "متاح على أندرويد", lang: "English", home: "الرئيسية" };
   const items = STATS.map((s) => `<div class="stat">${en ? s.en : s.ar}</div>`).join("\n");
   const body = `
-<div class="top"><a class="brand" href="${en ? SITE : SITE + "/ar/"}">MHS <span>BLOOM</span></a><a class="langlink" href="${altHref}">${L.lang}</a></div>
 <h1>${esc(L.title)}</h1>
 <div class="sub">${esc(L.sub)}</div>
 ${items}
 <div class="note">${esc(L.note)}</div>
 <div class="cta"><a href="${APP_STORE}">${L.get}</a><a class="alt" href="${PLAY_STORE}">${L.alt}</a></div>
-<footer>© 2026 MH-SYNAPTIX · <a href="${SITE}/">mhsbloom.com</a> · <a href="https://www.instagram.com/mhs_bloom">Instagram</a></footer>`;
+`;
   // strip HTML tags for meta/JSON-LD plain text
   const plain = (s) => s.replace(/<[^>]+>/g, "");
   const jsonld = {
@@ -122,10 +122,11 @@ ${items}
 <meta property="og:description" content="${esc(plain(L.sub))}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="MHS BLOOM">
-<style>${CSS}</style>
+${T.FONTS}
+<style>${CSS}${T.css(lang)}</style>
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
 </head>
-<body><div class="wrap">${body}</div></body></html>`;
+<body>${T.nav(lang, altHref)}<div class="wrap">${body}</div>${T.footer(lang)}${T.REVEAL_JS}</body></html>`;
 }
 
 fs.mkdirSync(path.join(ROOT, "stats"), { recursive: true });

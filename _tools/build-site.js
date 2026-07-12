@@ -8,6 +8,7 @@
 //   node _tools/build-site.js --sample   -> build only SAMPLE_SLUGS (for format review)
 
 const fs = require("fs");
+const T = require("./theme");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
@@ -84,13 +85,17 @@ function page({ lang, dir, title, desc, canonical, altHref, altLang, jsonld, bod
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="MHS BLOOM">
-<style>${CSS}</style>
+${T.FONTS}
+<style>${CSS}${T.css(lang)}</style>
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
 </head>
 <body>
+${T.nav(lang, altHref)}
 <div class="wrap">
 ${body}
 </div>
+${T.footer(lang)}
+${T.REVEAL_JS}
 </body>
 </html>`;
 }
@@ -116,10 +121,6 @@ function ingredientPage(rec, lang) {
         get: "حمّلي MHS BLOOM", both: "متاح على أندرويد كمان", sub: "مكوّن عناية بالبشرة، مفكوك — وكل معلومة بمصدرها." };
 
   let body = `
-<div class="top">
-  <a class="brand" href="${en ? SITE : SITE + "/ar/"}">MHS <span>BLOOM</span></a>
-  <a class="langlink" href="${altHref}">${en ? "العربية" : "English"}</a>
-</div>
 <div class="crumb"><a href="${en ? SITE + "/" : SITE + "/ar/"}">${L.home}</a> › <a href="${en ? SITE + "/ingredients/" : SITE + "/ar/ingredients/"}">${L.ings}</a> › ${esc(name)}</div>
 <h1>${esc(name)}</h1>
 <div class="sub">${L.sub}</div>
@@ -153,7 +154,7 @@ function ingredientPage(rec, lang) {
   }
 
   body += `\n<div class="disc">${esc(t("disclaimer"))}</div>
-<footer>© 2026 MH-SYNAPTIX · <a href="${SITE}/">mhsbloom.com</a> · <a href="https://www.instagram.com/mhs_bloom">Instagram</a></footer>`;
+`;
 
   const desc = (t("whatItDoes") || "").replace(/\s+/g, " ").slice(0, 155);
   const jsonld = {
@@ -190,16 +191,12 @@ function indexPage(recs, lang) {
     })
     .join("\n");
   const body = `
-<div class="top">
-  <a class="brand" href="${en ? SITE : SITE + "/ar/"}">MHS <span>BLOOM</span></a>
-  <a class="langlink" href="${altHref}">${en ? "العربية" : "English"}</a>
-</div>
 <h1>${esc(L.title)}</h1>
 <div class="sub">${esc(L.sub)}</div>
 <style>.ing{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin-bottom:10px;text-decoration:none;color:var(--ink);}
 .ing:hover{border-color:var(--rose);}.ing b{color:var(--rose-deep);display:block;font-size:16px;}.ing span{font-size:13px;color:var(--muted);}</style>
 ${items}
-<footer>© 2026 MH-SYNAPTIX · <a href="${SITE}/">mhsbloom.com</a></footer>`;
+`;
   const jsonld = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
