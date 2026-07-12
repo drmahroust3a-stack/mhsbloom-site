@@ -118,7 +118,7 @@ function ingredientPage(rec, lang) {
     : { home: "الرئيسية", ings: "المكونات", what: "إيه هو", how: "إزاي بيشتغل", pairs: "يتناسب مع", avoid: "أدخليه بحذر مع", safety: "مين ياخد باله", sources: "المصادر",
         gateTitle: "التركيز اللي فعلاً بيشتغل — وهل يناسب بشرتك إنتي؟",
         gateBody: "التركيز اللي فعلاً بيفرق، وهل ده يناسب ملف بشرتك إنتي، موجود في تطبيق MHS BLOOM.",
-        get: "حمّلي MHS BLOOM", both: "متاح على أندرويد كمان", sub: "مكوّن عناية بالبشرة، مفكوك — وكل معلومة بمصدرها." };
+        get: "حمّلي MHS BLOOM", both: "متاح على أندرويد كمان", sub: "مكوّن عناية بالبشرة، مبسّط — وكل معلومة بمصدرها." };
 
   let body = `
 <div class="crumb"><a href="${en ? SITE + "/" : SITE + "/ar/"}">${L.home}</a> › <a href="${en ? SITE + "/ingredients/" : SITE + "/ar/ingredients/"}">${L.ings}</a> › ${esc(name)}</div>
@@ -161,14 +161,14 @@ function ingredientPage(rec, lang) {
     "@context": "https://schema.org",
     "@type": "MedicalWebPage",
     inLanguage: lang,
-    name: `${name} — ${en ? "skincare ingredient decoded" : "مكوّن عناية بالبشرة مفكوك"}`,
+    name: `${name} — ${en ? "skincare ingredient decoded" : "مكوّن عناية بالبشرة مبسّط"}`,
     description: desc,
     url: canonical,
     isPartOf: { "@type": "WebSite", name: "MHS BLOOM", url: SITE },
     citation: sources.map((s) => ({ "@type": "CreativeWork", name: s.title, url: s.url })),
   };
 
-  return page({ lang, dir, title: `${name} — ${en ? "Ingredients Decoded | MHS BLOOM" : "المكونات مفكوكة | MHS BLOOM"}`, desc, canonical, altHref, altLang, jsonld, body });
+  return page({ lang, dir, title: `${name} — ${en ? "Ingredients Decoded | MHS BLOOM" : "المكونات مبسّطة | MHS BLOOM"}`, desc, canonical, altHref, altLang, jsonld, body });
 }
 
 // ---------- index page (list of all ingredients) ----------
@@ -179,7 +179,7 @@ function indexPage(recs, lang) {
   const altHref = en ? `${SITE}/ar/ingredients/` : `${SITE}/ingredients/`;
   const L = en
     ? { title: "Skincare Ingredients, Decoded", sub: "Plain-language, sourced explainers for the actives that matter. Every claim referenced.", home: "Home" }
-    : { title: "مكونات العناية بالبشرة، مفكوكة", sub: "شرح مبسّط وموثّق للمكونات الفعّالة اللي بتفرق. كل معلومة بمصدرها.", home: "الرئيسية" };
+    : { title: "مكونات العناية بالبشرة، مبسّطة", sub: "شرح مبسّط وموثّق للمكونات الفعّالة اللي بتفرق. كل معلومة بمصدرها.", home: "الرئيسية" };
   const items = recs
     .slice()
     .sort((a, b) => (a["commonName_" + lang] || a.inci).localeCompare(b["commonName_" + lang] || b.inci))

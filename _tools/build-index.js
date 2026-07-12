@@ -39,7 +39,7 @@ function build(lang) {
   const dispfont = en ? "'Playfair Display',Georgia,serif" : "'Amiri',serif";
   const L = en
     ? { over: "THE REFERENCE", t: "Products, decoded", s: `${meta.length.toLocaleString()} skincare products — every claim sourced, no brand can pay to change a rating. Search by product, brand or ingredient.`, ph: "Search 1,682 products… (e.g. CeraVe, niacinamide, sunscreen)", cnt: "products shown", none: "No products match — try another word." }
-    : { over: "المرجع", t: "المنتجات، مفكوكة", s: `${meta.length.toLocaleString()} منتج عناية بالبشرة — كل معلومة بمصدرها، ولا براند يقدر يدفع يغيّر تقييم. دوّري بالمنتج أو البراند أو المكوّن.`, ph: "دوّري في ١٦٨٢ منتج… (مثلاً CeraVe أو نياسيناميد)", cnt: "منتج ظاهر", none: "مفيش منتجات مطابقة — جرّبي كلمة تانية." };
+    : { over: "المرجع", t: "المنتجات، مبسّطة", s: `${meta.length.toLocaleString()} منتج عناية بالبشرة — كل معلومة بمصدرها، ولا براند يقدر يدفع يغيّر تقييم. دوّري بالمنتج أو البراند أو المكوّن.`, ph: "دوّري في ١٦٨٢ منتج… (مثلاً CeraVe أو نياسيناميد)", cnt: "منتج ظاهر", none: "مفيش منتجات مطابقة — جرّبي كلمة تانية." };
 
   const groups = {};
   for (const p of meta) (groups[p.brand] = groups[p.brand] || []).push(p);

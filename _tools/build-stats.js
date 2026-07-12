@@ -35,7 +35,7 @@ const spf = (cat["sunscreen"] || 0) + (cat["moisturizer-spf"] || 0);
 // Each stat: { en, ar } — descriptive only.
 const STATS = [
   { en: `MHS BLOOM's reference covers <b>${P.toLocaleString()} products</b> across <b>${B} brands</b>, each with its ingredients decoded and every claim sourced.`,
-    ar: `مرجع MHS BLOOM يغطّي <b>${P.toLocaleString()} منتج</b> من <b>${B} براند</b>، كل واحد بمكوّناته مفكوكة وكل معلومة بمصدرها.` },
+    ar: `مرجع MHS BLOOM يغطّي <b>${P.toLocaleString()} منتج</b> من <b>${B} براند</b>، كل واحد بمكوّناته مبسّطة وكل معلومة بمصدرها.` },
   { en: `<b>${scent["fragrance-free"]}</b> of the ${P.toLocaleString()} products (<b>${pct(scent["fragrance-free"])}%</b>) are labelled fragrance-free.`,
     ar: `<b>${scent["fragrance-free"]}</b> منتج من الـ ${P.toLocaleString()} (<b>${pct(scent["fragrance-free"])}%</b>) موصوفة بأنها خالية من العطور.` },
   { en: `The most-catalogued product type is moisturizers (<b>${cat["moisturizer"]}</b>), followed by serums (<b>${cat["serum"]}</b>) and sunscreens (<b>${cat["sunscreen"]}</b>).`,
@@ -55,7 +55,7 @@ const STATS = [
   { en: `Brands come from more than <b>${Object.keys(country).length - 1}</b> countries; France is the most-represented origin (<b>${country["France"]}</b> brands), then the United States (<b>${usMerged}</b>) and South Korea (<b>${country["South Korea"]}</b>).`,
     ar: `البراندات من أكثر من <b>${Object.keys(country).length - 1}</b> دولة؛ فرنسا هي الأكثر تمثيلًا (<b>${country["France"]}</b> براند)، ثم الولايات المتحدة (<b>${usMerged}</b>) وكوريا الجنوبية (<b>${country["South Korea"]}</b>).` },
   { en: `The single most-catalogued brand is ${esc(topBrand[0])} (<b>${topBrand[1]}</b> products); the average brand has about <b>${Math.round(P / B)}</b> products decoded.`,
-    ar: `أكثر براند تمثيلًا هو ${esc(topBrand[0])} (<b>${topBrand[1]}</b> منتج)؛ ومتوسط البراند حوالي <b>${Math.round(P / B)}</b> منتج مفكوك.` },
+    ar: `أكثر براند تمثيلًا هو ${esc(topBrand[0])} (<b>${topBrand[1]}</b> منتج)؛ ومتوسط البراند حوالي <b>${Math.round(P / B)}</b> منتج مبسّط.` },
   { en: `Among well-known actives: vitamin C is listed in <b>${ki["Vitamin C"]}</b> products, salicylic acid in <b>${ki["Salicylic Acid"]}</b>, peptides in <b>${ki["Peptides"]}</b> and ceramides in <b>${ki["Ceramides"]}</b>.`,
     ar: `من المكوّنات الفعّالة المعروفة: فيتامين سي مذكور في <b>${ki["Vitamin C"]}</b> منتج، حمض الساليسيليك في <b>${ki["Salicylic Acid"]}</b>، الببتيدات في <b>${ki["Peptides"]}</b>، والسيراميدات في <b>${ki["Ceramides"]}</b>.` },
 ];
@@ -86,7 +86,7 @@ function buildPage(lang) {
   const altHref = en ? `${SITE}/ar/stats/` : `${SITE}/stats/`;
   const L = en
     ? { title: "Skincare by the Numbers", sub: `Descriptive facts drawn from MHS BLOOM's reference of ${P.toLocaleString()} decoded products across ${B} brands. Counts only — no brand can pay to change a rating.`, note: "These are descriptive figures about the products catalogued in MHS BLOOM's reference, not efficacy or safety claims. Cosmetic reference only.", get: "Get MHS BLOOM", alt: "Also on Android", lang: "العربية", home: "Home" }
-    : { title: "العناية بالبشرة بالأرقام", sub: `حقائق وصفية من مرجع MHS BLOOM الذي يضم ${P.toLocaleString()} منتج مفكوك عبر ${B} براند. أعداد فقط — ولا براند يقدر يدفع عشان يغيّر تقييم.`, note: "دي أرقام وصفية عن المنتجات المُدرَجة في مرجع MHS BLOOM، وليست ادعاءات فعالية أو أمان. مرجع تجميلي فقط.", get: "حمّلي MHS BLOOM", alt: "متاح على أندرويد", lang: "English", home: "الرئيسية" };
+    : { title: "العناية بالبشرة بالأرقام", sub: `حقائق وصفية من مرجع MHS BLOOM الذي يضم ${P.toLocaleString()} منتج مبسّط عبر ${B} براند. أعداد فقط — ولا براند يقدر يدفع عشان يغيّر تقييم.`, note: "دي أرقام وصفية عن المنتجات المُدرَجة في مرجع MHS BLOOM، وليست ادعاءات فعالية أو أمان. مرجع تجميلي فقط.", get: "حمّلي MHS BLOOM", alt: "متاح على أندرويد", lang: "English", home: "الرئيسية" };
   const items = STATS.map((s) => `<div class="stat">${en ? s.en : s.ar}</div>`).join("\n");
   const body = `
 <h1>${esc(L.title)}</h1>
