@@ -45,7 +45,7 @@ body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 .nav{position:fixed;top:0;left:0;right:0;z-index:60;backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);background:rgba(252,249,245,.78);}
 .nav::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--champagne) 18%,var(--champagne) 82%,transparent);}
 .nav-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:15px 22px;}
-.logo{font-family:${disp};font-weight:700;font-size:21px;letter-spacing:.4px;color:var(--deep);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:9px;}
+.logo{direction:ltr;font-family:${disp};font-weight:700;font-size:21px;letter-spacing:.4px;color:var(--deep);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:9px;}
 .logo .petal{font-size:17px;filter:saturate(.85);}
 .logo em{font-style:normal;color:var(--gold);}
 .nav-links{display:flex;gap:2px;margin-inline-start:auto;align-items:center;}

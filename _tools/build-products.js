@@ -82,7 +82,7 @@ function svgCard(p, lang) {
   }
   const nameSvg = nameLines.map((l, i) => `<text x="64" y="${196 + i * (nameSize + 12)}" font-family="${serif}" font-size="${nameSize}" font-weight="600" fill="#8E3D4A">${xesc(l)}</text>`).join("");
   const meta = [catL, texL, p.size].filter(Boolean).join("   ·   ");
-  return `<svg viewBox="0 0 720 448" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${xesc(p.name)}">
+  return `<svg viewBox="0 0 720 448" xmlns="http://www.w3.org/2000/svg" direction="ltr" style="direction:ltr" role="img" aria-label="${xesc(p.name)}">
 <defs>
 <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFEFB"/><stop offset="1" stop-color="#FBF4EC"/></linearGradient>
 <radialGradient id="blush" cx="0.85" cy="0.12" r="0.5"><stop offset="0" stop-color="#F5E5E7"/><stop offset="1" stop-color="#F5E5E7" stop-opacity="0"/></radialGradient>
