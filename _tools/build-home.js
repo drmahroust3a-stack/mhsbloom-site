@@ -6,23 +6,19 @@ const ROOT = path.join(__dirname, "..");
 const SITE = T.SITE, APP = T.APP_STORE, PLAY = T.PLAY_STORE;
 
 const HOME_CSS = `
-.hero{max-width:1100px;margin:0 auto;padding:150px 22px 26px;display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:center;}
-@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:118px;gap:26px;}}
-.hero h1{font-size:clamp(40px,6.6vw,62px);line-height:1.12;margin:14px 0 18px;}
+.hero{max-width:820px;margin:0 auto;padding:158px 22px 30px;text-align:center;}
+@media(max-width:860px){.hero{padding-top:126px;}}
+.hero .plaque{justify-content:center;}
+.hero .plaque::before,.hero .plaque::after{flex:0 0 44px;}
+.hero h1{font-size:clamp(42px,7vw,68px);line-height:1.1;margin:16px 0 20px;}
 .hero h1 .accent{background:linear-gradient(120deg,#B85C68,#B99256);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.hero .sub{font-size:18px;}
-.trust{display:flex;gap:24px;flex-wrap:wrap;margin:4px 0 26px;}
-.trust div{font-size:13px;color:var(--soft);}
-.trust b{display:block;font-family:var(--df);font-size:24px;color:var(--deep);line-height:1.2;}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;}
-/* compact overlapping duo */
-.hero-phones{position:relative;height:400px;display:flex;justify-content:center;align-items:center;}
-.hero-phones .phone{position:absolute;width:172px;}
-.hero-phones .phone.p1{transform:rotate(-6deg) translateX(-58px);z-index:2;}
-.hero-phones .phone.p2{transform:rotate(5deg) translateX(62px) translateY(26px);z-index:1;filter:brightness(.97);}
-.hero-phones .phone:hover{z-index:3;transform:rotate(0) translateY(-8px);}
-@media(max-width:860px){.hero-phones{height:330px;}.hero-phones .phone{width:146px;}.hero-phones .phone.p1{transform:rotate(-6deg) translateX(-50px);}.hero-phones .phone.p2{transform:rotate(5deg) translateX(52px) translateY(20px);}}
-.sections{max-width:1100px;margin:34px auto 0;padding:0 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.hero .sub{font-size:18.5px;margin:0 auto 26px;}
+.trust{display:flex;gap:0;justify-content:center;margin:6px 0 30px;}
+.trust div{font-size:13px;color:var(--soft);padding:4px 28px;}
+.trust div+div{border-inline-start:1px solid var(--champagne);}
+.trust b{display:block;font-family:var(--df);font-size:30px;color:var(--deep);line-height:1.25;}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:8px;}
+.sections{max-width:1100px;margin:44px auto 0;padding:0 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
 .sec{display:block;text-decoration:none;color:var(--ink);background:var(--porcelain);border:1px solid var(--hairline);border-radius:22px;padding:26px 26px 22px;box-shadow:var(--sh-s);transition:transform .22s,box-shadow .22s,border-color .22s;position:relative;overflow:hidden;}
 .sec::after{content:'';position:absolute;inset-inline-end:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:var(--rose-mist);opacity:.7;transition:transform .3s;}
 .sec:hover{transform:translateY(-4px);box-shadow:var(--sh-m);border-color:var(--champagne);}
@@ -77,17 +73,11 @@ ${T.FONTS}
 </head><body>
 ${T.nav(lang, alt)}
 <div class='hero'>
-<div>
 <div class='plaque rv in'><span>${L.over}</span></div>
 <h1 class='rv in'>${L.h1}</h1>
 <div class='sub rv in'>${L.sub}</div>
 <div class='trust rv in'><div><b>${L.t1}</b> ${L.l1}</div><div><b>${L.t2}</b> ${L.l2}</div><div><b>${L.t3}</b> ${L.l3}</div></div>
 <div class='cta-row rv in'><a class='btn' href='${APP}'>${L.ios}</a><a class='btn ghost' href='${PLAY}'>${L.and}</a></div>
-</div>
-<div class='hero-phones rv in'>
-<div class='phone p1'><img src='${SITE}/assets/app-product.png' alt='MHS BLOOM app' width='640' height='1137'></div>
-<div class='phone p2'><img src='${SITE}/assets/app-verdict.png' alt="BLOOM's verdict" width='640' height='1137'></div>
-</div>
 </div>
 <div class='sections'>
 ${sec(L.s1, pre + "/products/")}
