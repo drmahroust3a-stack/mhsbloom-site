@@ -33,8 +33,17 @@ h2{font-size:16px;color:var(--rose-deep);margin:22px 0 8px;text-transform:upperc
 .ing li .bl{display:block;color:var(--muted);font-size:12.5px;margin-top:2px;}
 .chips{display:flex;flex-wrap:wrap;gap:7px;}
 .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;}
-.glance{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
-.glance td{padding:8px 12px;border-top:1px solid var(--line);}.glance td:first-child{color:var(--muted);width:40%;}
+.herocard{margin:6px 0 4px;}
+.herocard svg{width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 3px 14px rgba(184,92,104,.09);}
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.gitem{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;}
+.gitem .k{font-size:11.5px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;}
+.gitem .v{font-size:15px;font-weight:700;color:var(--rose-deep);margin-top:2px;}
+.appshots{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 4px;}
+.appshots figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+.appshots img{width:100%;display:block;}
+.appshots figcaption{font-size:12.5px;color:var(--muted);padding:9px 12px;text-align:center;}
+@media(max-width:520px){.appshots{grid-template-columns:1fr 1fr;}}
 .gate{background:linear-gradient(180deg,#fff,#FBF3EE);border:1px solid var(--rose-soft);border-radius:16px;padding:18px 22px;margin:22px 0;text-align:center;}
 .gate .lock{font-size:13px;color:var(--lock);font-weight:600;letter-spacing:1px;}
 .gate p{font-size:14.5px;color:var(--ink);margin:6px 0 14px;}
@@ -56,18 +65,34 @@ footer{text-align:center;font-size:12px;color:var(--muted);margin-top:22px;}foot
 <div class="crumb"><a href="https://mhsbloom.com/ar/">الرئيسية</a> › <a href="https://mhsbloom.com/ar/products/">المنتجات</a> › أورياج<sup class="reg">®</sup></div>
 <div class="kicker">منتج، مفكوك</div>
 <h1>HYSÉAC Fluid SPF50+</h1>
+<div class="herocard"><svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HYSÉAC Fluid SPF50+">
+<rect width="720" height="440" rx="28" fill="#FDFBF9"/>
+<rect x="1.5" y="1.5" width="717" height="437" rx="27" fill="none" stroke="#EADFD8" stroke-width="3"/>
+<circle cx="640" cy="70" r="90" fill="#F3E2E4" opacity="0.55"/>
+<circle cx="680" cy="380" r="60" fill="#F6EBDD" opacity="0.6"/>
+<text x="60" y="86" font-family="Segoe UI, Arial" font-size="22" letter-spacing="6" fill="#B99256" font-weight="700">أورياج</text>
+<text x="60" y="124" font-family="Segoe UI, Arial" font-size="17" letter-spacing="2" fill="#8A7F7B">M H S   B L O O M   ·   مفكوك</text>
+<text x="60" y="190" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#9E4552">HYSÉAC Fluid SPF50+</text>
+<rect x="60" y="308" width="220" height="46" rx="23" fill="#F3E2E4"/><text x="170" y="338" text-anchor="middle" font-family="Segoe UI, Arial" font-size="19" fill="#9E4552" font-weight="600">Uriage Thermal Water</text>
+<text x="60" y="404" font-family="Segoe UI, Arial" font-size="19" fill="#8A7F7B">واقي شمس  ·  سائل خفيف  ·  50ml</text>
+</svg></div>
 <p class="lede">HYSÉAC Fluid SPF50+ هو واقي شمس من أورياج<sup class="reg">®</sup>، ضمن مجموعة Hyséac. قوامه سائل خفيف وعطر خفيف، بحجم 50ml.</p>
 <h2>المكونات الرئيسية</h2><ul class="ing"><li>Uriage Thermal Water</li></ul>
 <h2>الأنسب لـ</h2><p>البشرة المختلطة والدهنية والمعرّضة للحبوب التي تحتاج حماية شمسية عالية.</p>
 <h2>مجالات التركيز</h2><div class="chips"><span class="chip">الحماية من الشمس</span><span class="chip">الدهون الزائدة</span><span class="chip">البشرة المعرّضة للحبوب</span></div>
 <h2>لمحة سريعة</h2>
-<table class="glance">
-<tr><td>القوام</td><td>سائل خفيف</td></tr>
-<tr><td>الرائحة</td><td>عطر خفيف</td></tr>
-<tr><td>الحجم</td><td>50ml</td></tr>
-<tr><td>وقت الاستخدام</td><td>صباحًا</td></tr>
-<tr><td>الفئة السعرية</td><td>متوسط</td></tr>
-</table>
+<div class="glance">
+<div class="gitem"><div class="k">القوام</div><div class="v">سائل خفيف</div></div>
+<div class="gitem"><div class="k">الرائحة</div><div class="v">عطر خفيف</div></div>
+<div class="gitem"><div class="k">الحجم</div><div class="v">50ml</div></div>
+<div class="gitem"><div class="k">وقت الاستخدام</div><div class="v">صباحًا</div></div>
+<div class="gitem"><div class="k">الفئة السعرية</div><div class="v">متوسط</div></div>
+</div>
+<h2>جوّه تطبيق MHS BLOOM</h2>
+<div class="appshots">
+<figure><img src="https://mhsbloom.com/assets/app-product.png" alt="MHS BLOOM app — product decoded" loading="lazy" width="640" height="1137"><figcaption>كل منتج مفكوك — المكونات وملاءمة البشرة والقوام</figcaption></figure>
+<figure><img src="https://mhsbloom.com/assets/app-verdict.png" alt="MHS BLOOM app — BLOOM's verdict" loading="lazy" width="640" height="1137"><figcaption>حكم بلوم: تشتريه فعلًا ولا لأ؟</figcaption></figure>
+</div>
 <div class="gate"><div class="lock">🔒 في التطبيق</div><p>هل HYSÉAC Fluid SPF50+ يناسب بشرتك إنتي؟ حكم بلوم الكامل — وإزاي يقارن ويدخل في روتينك — موجود في التطبيق.</p>
 <div class="cta"><a href="https://apps.apple.com/app/mhs-bloom/id6778931238">حمّلي MHS BLOOM</a><a class="alt" href="https://play.google.com/store/apps/details?id=com.mhsynaptix.bloom">متاح على أندرويد</a></div></div>
 <h2>المزيد من أورياج<sup class="reg">®</sup></h2><div class="rel"><a href="https://mhsbloom.com/ar/products/uriage-repairing-thermal-water/">Repairing Thermal Water</a> · <a href="https://mhsbloom.com/ar/products/uriage-thermal-micellar-water/">Thermal Micellar Water</a> · <a href="https://mhsbloom.com/ar/products/uriage-eau-thermale-water-cream/">Eau Thermale Water Cream</a> · <a href="https://mhsbloom.com/ar/products/uriage-eau-thermale-rich-water-cream/">Eau Thermale Rich Water Cream</a> · <a href="https://mhsbloom.com/ar/products/uriage-eau-thermale-light-water-cream-spf20/">Eau Thermale Light Water Cream SPF20</a></div>

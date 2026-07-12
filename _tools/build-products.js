@@ -19,7 +19,7 @@ const APP_STORE = "https://apps.apple.com/app/mhs-bloom/id6778931238";
 const PLAY_STORE = "https://play.google.com/store/apps/details?id=com.mhsynaptix.bloom";
 const SAMPLE_IDS = ["NEU-BB-GELCREAM", "LRP-EF-GEL", "CRV-MO-CREAM", "PC-SP-BHA", "BIO-SEN-GEL"];
 const sampleOnly = process.argv.includes("--sample");
-const CONTACT = "mhsynaptix@gmail.com"; // public contact / corrections / complaints
+const CONTACT = "contact@mhsbloom.com"; // public contact / corrections / complaints (Namecheap forwarder → brand inbox)
 const REG = '<sup class="reg">®</sup>'; // registered-trademark mark after brand names
 
 const esc = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -61,6 +61,44 @@ for (const p of products) {
 const byBrand = {};
 for (const p of products) (byBrand[p._brand] = byBrand[p._brand] || []).push(p);
 
+// ---- inline SVG "app-style" product card (the page's visual hero; no external requests) ----
+function xesc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;"); }
+function wrapName(name, max) {
+  const words = String(name).split(" "); const lines = []; let cur = "";
+  for (const w of words) { if ((cur + " " + w).trim().length > max && cur) { lines.push(cur); cur = w; } else cur = (cur + " " + w).trim(); }
+  if (cur) lines.push(cur);
+  return lines.slice(0, 3);
+}
+function svgCard(p, lang) {
+  const en = lang === "en";
+  const brand = en ? p._brand : (p._brandAr || p._brand);
+  const catL = clabel(CAT, p.categoryId, lang);
+  const texL = clabel(TEX, p.texture, lang);
+  const nameLines = wrapName(p.name, 26);
+  const nameSize = nameLines.length >= 3 ? 34 : (nameLines.some(l => l.length > 22) ? 38 : 42);
+  const chips = (Array.isArray(p.keyIngredients) ? p.keyIngredients : []).slice(0, 3);
+  let chipX = 60, chipsSvg = "";
+  for (const c of chips) {
+    const w = Math.min(9.2 * c.length + 36, 300);
+    if (chipX + w > 660) break;
+    chipsSvg += `<rect x="${chipX}" y="308" width="${w}" height="46" rx="23" fill="#F3E2E4"/><text x="${chipX + w / 2}" y="338" text-anchor="middle" font-family="Segoe UI, Arial" font-size="19" fill="#9E4552" font-weight="600">${xesc(c)}</text>`;
+    chipX += w + 12;
+  }
+  const nameSvg = nameLines.map((l, i) => `<text x="60" y="${190 + i * (nameSize + 12)}" font-family="Georgia, serif" font-size="${nameSize}" font-weight="bold" fill="#9E4552">${xesc(l)}</text>`).join("");
+  const meta = [catL, texL, p.size].filter(Boolean).join("  ·  ");
+  return `<svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${xesc(p.name)}">
+<rect width="720" height="440" rx="28" fill="#FDFBF9"/>
+<rect x="1.5" y="1.5" width="717" height="437" rx="27" fill="none" stroke="#EADFD8" stroke-width="3"/>
+<circle cx="640" cy="70" r="90" fill="#F3E2E4" opacity="0.55"/>
+<circle cx="680" cy="380" r="60" fill="#F6EBDD" opacity="0.6"/>
+<text x="60" y="86" font-family="Segoe UI, Arial" font-size="22" letter-spacing="6" fill="#B99256" font-weight="700">${xesc(String(brand).toUpperCase())}</text>
+<text x="60" y="124" font-family="Segoe UI, Arial" font-size="17" letter-spacing="2" fill="#8A7F7B">M H S   B L O O M   ·   ${en ? "DECODED" : "مفكوك"}</text>
+${nameSvg}
+${chipsSvg}
+<text x="60" y="404" font-family="Segoe UI, Arial" font-size="19" fill="#8A7F7B">${xesc(meta)}</text>
+</svg>`;
+}
+
 const CSS = `
 :root{--cream:#FAF6F2;--card:#FFF;--ink:#2B2626;--muted:#8A7F7B;--rose:#B85C68;--rose-deep:#9E4552;--rose-soft:#F3E2E4;--gold:#B99256;--line:#EADFD8;--lock:#7A4E5A;--ok:#4E7A5A;--ok-soft:#E4EFE7;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -81,8 +119,17 @@ h2{font-size:16px;color:var(--rose-deep);margin:22px 0 8px;text-transform:upperc
 .ing li .bl{display:block;color:var(--muted);font-size:12.5px;margin-top:2px;}
 .chips{display:flex;flex-wrap:wrap;gap:7px;}
 .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;}
-.glance{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
-.glance td{padding:8px 12px;border-top:1px solid var(--line);}.glance td:first-child{color:var(--muted);width:40%;}
+.herocard{margin:6px 0 4px;}
+.herocard svg{width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 3px 14px rgba(184,92,104,.09);}
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.gitem{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;}
+.gitem .k{font-size:11.5px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;}
+.gitem .v{font-size:15px;font-weight:700;color:var(--rose-deep);margin-top:2px;}
+.appshots{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 4px;}
+.appshots figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+.appshots img{width:100%;display:block;}
+.appshots figcaption{font-size:12.5px;color:var(--muted);padding:9px 12px;text-align:center;}
+@media(max-width:520px){.appshots{grid-template-columns:1fr 1fr;}}
 .gate{background:linear-gradient(180deg,#fff,#FBF3EE);border:1px solid var(--rose-soft);border-radius:16px;padding:18px 22px;margin:22px 0;text-align:center;}
 .gate .lock{font-size:13px;color:var(--lock);font-weight:600;letter-spacing:1px;}
 .gate p{font-size:14.5px;color:var(--ink);margin:6px 0 14px;}
@@ -122,8 +169,8 @@ function productPage(p, lang) {
     : `<b>عن هذه الصفحة.</b> MHS BLOOM مرجع <b>مستقل</b> للعناية بالبشرة. وهذه مراجعة تحريرية مستقلة لغرض التعريف والاسترشاد فقط — <b>لسنا تابعين لأي علامة أو شركة مصنّعة ولا مرخّصين أو مموّلين منها</b> (بما فيها ${esc(brand)})، ولا يمكن لأي علامة أن تدفع لتغيير تقييم. جميع أسماء العلامات والمنتجات علامات تجارية أو علامات تجارية مسجّلة تعود لأصحابها، وتُستخدم هنا لغرض التعريف فقط. معلومات المكونات تتبع عبوة الشركة المصنّعة وقد تتغيّر — راجعي دائمًا ملصق المنتج نفسه. للاستفسارات أو التصحيحات أو الشكاوى: <a href="mailto:${CONTACT}?subject=MHS%20BLOOM%20—%20${encodeURIComponent(p.name)}">${CONTACT}</a>.`;
 
   const L = en
-    ? { kicker: "Product, decoded", home: "Home", prods: "Products", ings: "Key ingredients", suited: "Best suited to", focus: "Focus areas", glance: "At a glance", format: "Format", scent: "Fragrance", size: "Size", use: "When to use", price: "Price tier", from: "More from", gate: `Is ${p.name} right for YOUR skin? BLOOM's full verdict — plus how it compares and fits your routine — is in the app.`, get: "Get MHS BLOOM", alt: "Also on Android", disc: "This page describes catalogued attributes of the product for reference; it is not an efficacy or safety claim, and not medical advice. Ingredient lists follow the manufacturer's packaging.", lang: "العربية" }
-    : { kicker: "منتج، مفكوك", home: "الرئيسية", prods: "المنتجات", ings: "المكونات الرئيسية", suited: "الأنسب لـ", focus: "مجالات التركيز", glance: "لمحة سريعة", format: "القوام", scent: "الرائحة", size: "الحجم", use: "وقت الاستخدام", price: "الفئة السعرية", from: "المزيد من", gate: `هل ${p.name} يناسب بشرتك إنتي؟ حكم بلوم الكامل — وإزاي يقارن ويدخل في روتينك — موجود في التطبيق.`, get: "حمّلي MHS BLOOM", alt: "متاح على أندرويد", disc: "الصفحة دي بتوصف خصائص المنتج المُدرجة للمرجع؛ وليست ادعاء فعالية أو أمان، ولا نصيحة طبية. قوائم المكونات تتبع عبوة الشركة المصنّعة.", lang: "English" };
+    ? { kicker: "Product, decoded", home: "Home", prods: "Products", ings: "Key ingredients", suited: "Best suited to", focus: "Focus areas", glance: "At a glance", format: "Format", scent: "Fragrance", size: "Size", use: "When to use", price: "Price tier", from: "More from", inapp: "Inside the MHS BLOOM app", cap1: "Every product decoded — ingredients, skin fit, format", cap2: "BLOOM's verdict: should you actually buy it?", gate: `Is ${p.name} right for YOUR skin? BLOOM's full verdict — plus how it compares and fits your routine — is in the app.`, get: "Get MHS BLOOM", alt: "Also on Android", disc: "This page describes catalogued attributes of the product for reference; it is not an efficacy or safety claim, and not medical advice. Ingredient lists follow the manufacturer's packaging.", lang: "العربية" }
+    : { kicker: "منتج، مفكوك", home: "الرئيسية", prods: "المنتجات", ings: "المكونات الرئيسية", suited: "الأنسب لـ", focus: "مجالات التركيز", glance: "لمحة سريعة", format: "القوام", scent: "الرائحة", size: "الحجم", use: "وقت الاستخدام", price: "الفئة السعرية", from: "المزيد من", inapp: "جوّه تطبيق MHS BLOOM", cap1: "كل منتج مفكوك — المكونات وملاءمة البشرة والقوام", cap2: "حكم بلوم: تشتريه فعلًا ولا لأ؟", gate: `هل ${p.name} يناسب بشرتك إنتي؟ حكم بلوم الكامل — وإزاي يقارن ويدخل في روتينك — موجود في التطبيق.`, get: "حمّلي MHS BLOOM", alt: "متاح على أندرويد", disc: "الصفحة دي بتوصف خصائص المنتج المُدرجة للمرجع؛ وليست ادعاء فعالية أو أمان، ولا نصيحة طبية. قوائم المكونات تتبع عبوة الشركة المصنّعة.", lang: "English" };
 
   // key ingredients (link the ones we cover)
   const kis = (Array.isArray(p.keyIngredients) ? p.keyIngredients : []).map((k) => {
@@ -147,18 +194,24 @@ function productPage(p, lang) {
 <div class="crumb"><a href="${en ? SITE + "/" : SITE + "/ar/"}">${L.home}</a> › <a href="${en ? SITE + "/products/" : SITE + "/ar/products/"}">${L.prods}</a> › ${brandR}</div>
 <div class="kicker">${L.kicker}</div>
 <h1>${esc(p.name)}</h1>
+<div class="herocard">${svgCard(p, lang)}</div>
 <p class="lede">${lede}</p>
 ${kis ? `<h2>${L.ings}</h2><ul class="ing">${kis}</ul>` : ""}
 ${skin ? `<h2>${L.suited}</h2><p>${esc(skin)}</p>` : ""}
 ${concerns ? `<h2>${L.focus}</h2><div class="chips">${concerns}</div>` : ""}
 <h2>${L.glance}</h2>
-<table class="glance">
-<tr><td>${L.format}</td><td>${esc(texL)}</td></tr>
-${p.scentProfile !== "none" ? `<tr><td>${L.scent}</td><td>${esc(scentL)}</td></tr>` : ""}
-${p.size ? `<tr><td>${L.size}</td><td>${esc(p.size)}</td></tr>` : ""}
-${p.whenToUse ? `<tr><td>${L.use}</td><td>${esc(clabel(WHEN, p.whenToUse, lang))}</td></tr>` : ""}
-${p.priceRange ? `<tr><td>${L.price}</td><td>${esc(clabel(PRICE, p.priceRange, lang))}</td></tr>` : ""}
-</table>
+<div class="glance">
+<div class="gitem"><div class="k">${L.format}</div><div class="v">${esc(texL)}</div></div>
+${p.scentProfile !== "none" ? `<div class="gitem"><div class="k">${L.scent}</div><div class="v">${esc(scentL)}</div></div>` : ""}
+${p.size ? `<div class="gitem"><div class="k">${L.size}</div><div class="v">${esc(p.size)}</div></div>` : ""}
+${p.whenToUse ? `<div class="gitem"><div class="k">${L.use}</div><div class="v">${esc(clabel(WHEN, p.whenToUse, lang))}</div></div>` : ""}
+${p.priceRange ? `<div class="gitem"><div class="k">${L.price}</div><div class="v">${esc(clabel(PRICE, p.priceRange, lang))}</div></div>` : ""}
+</div>
+<h2>${L.inapp}</h2>
+<div class="appshots">
+<figure><img src="${SITE}/assets/app-product.png" alt="MHS BLOOM app — product decoded" loading="lazy" width="640" height="1137"><figcaption>${esc(L.cap1)}</figcaption></figure>
+<figure><img src="${SITE}/assets/app-verdict.png" alt="MHS BLOOM app — BLOOM's verdict" loading="lazy" width="640" height="1137"><figcaption>${esc(L.cap2)}</figcaption></figure>
+</div>
 <div class="gate"><div class="lock">🔒 ${en ? "IN THE APP" : "في التطبيق"}</div><p>${esc(L.gate)}</p>
 <div class="cta"><a href="${APP_STORE}">${L.get}</a><a class="alt" href="${PLAY_STORE}">${L.alt}</a></div></div>
 ${related ? `<h2>${L.from} ${brandR}</h2><div class="rel">${related}</div>` : ""}
@@ -199,15 +252,25 @@ ${related ? `<h2>${L.from} ${brandR}</h2><div class="rel">${related}</div>` : ""
 <body><div class="wrap">${body}</div></body></html>`;
 }
 
+// --stage writes ALL pages into the gitignored _staged/ tree (for gradual batch publishing)
+const staging = process.argv.includes("--stage");
+const OUT = staging ? path.join(ROOT, "_staged") : ROOT;
+
 const targets = sampleOnly ? products.filter((p) => SAMPLE_IDS.includes(p.id)) : products;
 let n = 0;
 for (const p of targets) {
   for (const lang of ["en", "ar"]) {
     const rel = lang === "en" ? `products/${p._slug}` : `ar/products/${p._slug}`;
-    fs.mkdirSync(path.join(ROOT, rel), { recursive: true });
-    fs.writeFileSync(path.join(ROOT, rel, "index.html"), productPage(p, lang), "utf8");
+    fs.mkdirSync(path.join(OUT, rel), { recursive: true });
+    fs.writeFileSync(path.join(OUT, rel, "index.html"), productPage(p, lang), "utf8");
     n++;
   }
 }
-console.log(`generated ${n} product pages (${targets.length} products x 2)${sampleOnly ? " [SAMPLE]" : ""}`);
-targets.forEach((p) => console.log(`  ${SITE}/products/${p._slug}/  <- ${p._brand} ${p.name}`));
+// product metadata map for the batch publisher (index/sitemap generation)
+if (!sampleOnly) {
+  const meta = products.map((p) => ({ id: p.id, slug: p._slug, brand: p._brand, brandAr: p._brandAr, name: p.name, category: p.categoryId }));
+  fs.mkdirSync(path.join(ROOT, "_data"), { recursive: true });
+  fs.writeFileSync(path.join(ROOT, "_data", "product-meta.json"), JSON.stringify(meta), "utf8");
+}
+console.log(`generated ${n} product pages (${targets.length} products x 2)${sampleOnly ? " [SAMPLE]" : ""}${staging ? " -> _staged/" : ""}`);
+if (sampleOnly) targets.forEach((p) => console.log(`  ${SITE}/products/${p._slug}/  <- ${p._brand} ${p.name}`));
