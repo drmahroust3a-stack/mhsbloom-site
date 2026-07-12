@@ -13,89 +13,197 @@
 <meta property="og:description" content="Concentrated Ginseng Rejuvenating Water is a toner by Sulwhasoo, part of the Concentrated Ginseng range. It has a liquid texture and is warm scent, in a 15">
 <meta property="og:url" content="https://mhsbloom.com/products/sulwhasoo-concentrated-ginseng-rejuvenating-water/">
 <meta property="og:site_name" content="MHS BLOOM">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Inter:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#FAF6F2;--card:#FFF;--ink:#2B2626;--muted:#8A7F7B;--rose:#B85C68;--rose-deep:#9E4552;--rose-soft:#F3E2E4;--gold:#B99256;--line:#EADFD8;--lock:#7A4E5A;--ok:#4E7A5A;--ok-soft:#E4EFE7;}
+:root{
+  --cream:#FBF8F4;--porcelain:#FFFEFC;--ink:#2A2224;--muted:#93848A;--soft:#6F5F63;
+  --rose:#B85C68;--deep:#8E3D4A;--rose-mist:#FAF0F1;--rose-soft:#F5E5E7;
+  --gold:#B99256;--champagne:#E5D3B0;--gold-wash:#F6EFE1;--hairline:#EBDFD6;
+  --ok:#4E7A5A;--ok-soft:#E9F2EC;
+  --sh-s:0 1px 2px rgba(142,61,74,.04),0 4px 14px rgba(142,61,74,.05);
+  --sh-m:0 2px 4px rgba(142,61,74,.04),0 14px 44px rgba(142,61,74,.10);
+  --sh-l:0 4px 8px rgba(142,61,74,.05),0 28px 80px rgba(142,61,74,.16);
+  --grad:linear-gradient(135deg,#C2687520 0,#8E3D4A 0);
+}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:"Segoe UI",-apple-system,Tahoma,Arial,sans-serif;background:var(--cream);color:var(--ink);line-height:1.8;font-size:16px;}
-.wrap{max-width:760px;margin:0 auto;padding:22px 18px 80px;}
-.top{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:18px;font-size:13px;}
-.brand{font-weight:700;letter-spacing:2px;color:var(--rose-deep);text-decoration:none;}.brand span{color:var(--gold);}
-.langlink{color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;}.langlink:hover{border-color:var(--rose);}
-.crumb{font-size:12.5px;color:var(--muted);margin-bottom:8px;}.crumb a{color:var(--muted);text-decoration:none;}
-.kicker{font-size:13px;color:var(--gold);font-weight:600;}
-h1{font-size:27px;color:var(--rose-deep);line-height:1.35;margin:2px 0 10px;}
-.lede{font-size:17px;margin-bottom:18px;}
-h2{font-size:16px;color:var(--rose-deep);margin:22px 0 8px;text-transform:uppercase;letter-spacing:.5px;}
-.ing{list-style:none;}
-.ing li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 13px;margin-bottom:8px;font-size:14.5px;}
-.ing li a{color:var(--rose-deep);font-weight:600;text-decoration:none;}
-.ing li a:hover{text-decoration:underline;}
-.ing li .bl{display:block;color:var(--muted);font-size:12.5px;margin-top:2px;}
-.chips{display:flex;flex-wrap:wrap;gap:7px;}
-.chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 12px;font-size:13px;}
-.herocard{margin:6px 0 4px;}
-.herocard svg{width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 3px 14px rgba(184,92,104,.09);}
-.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
-.gitem{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;}
-.gitem .k{font-size:11.5px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;}
-.gitem .v{font-size:15px;font-weight:700;color:var(--rose-deep);margin-top:2px;}
-.appshots{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 4px;}
-.appshots figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
-.appshots img{width:100%;display:block;}
-.appshots figcaption{font-size:12.5px;color:var(--muted);padding:9px 12px;text-align:center;}
-@media(max-width:520px){.appshots{grid-template-columns:1fr 1fr;}}
-.gate{background:linear-gradient(180deg,#fff,#FBF3EE);border:1px solid var(--rose-soft);border-radius:16px;padding:18px 22px;margin:22px 0;text-align:center;}
-.gate .lock{font-size:13px;color:var(--lock);font-weight:600;letter-spacing:1px;}
-.gate p{font-size:14.5px;color:var(--ink);margin:6px 0 14px;}
-.cta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;}
-.cta a{background:var(--rose);color:#fff;text-decoration:none;border-radius:12px;padding:11px 20px;font-size:14.5px;font-weight:600;}
-.cta a.alt{background:var(--card);color:var(--rose-deep);border:1px solid var(--rose);}
-.cta a:hover{background:var(--rose-deep);}
-.rel a{color:var(--rose-deep);}
-.reg{font-size:.62em;vertical-align:super;color:var(--muted);font-weight:400;}
-.about{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-top:24px;font-size:12.5px;color:var(--muted);line-height:1.7;}
-.about b{color:var(--rose-deep);}
-.about a{color:var(--rose-deep);}
-footer{text-align:center;font-size:12px;color:var(--muted);margin-top:22px;}footer a{color:var(--muted);}
+html{scroll-behavior:smooth;}
+::selection{background:var(--rose-soft);color:var(--deep);}
+body{font-family:'Inter','Tajawal',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body::before{content:'';position:fixed;inset:0;z-index:-2;background:
+ radial-gradient(900px 560px at 92% -8%,rgba(184,92,104,.09),transparent 62%),
+ radial-gradient(700px 480px at -10% 24%,rgba(185,146,86,.08),transparent 60%),
+ radial-gradient(900px 640px at 50% 118%,rgba(184,92,104,.06),transparent 62%),
+ linear-gradient(180deg,#FCF9F6 0%,#FBF8F4 40%,#F9F4EE 100%);}
+body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+.wrap{max-width:820px;margin:0 auto;padding:118px 22px 40px;}
+
+/* ============ NAV — glass + gold hairline ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);background:rgba(252,249,245,.78);}
+.nav::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--champagne) 18%,var(--champagne) 82%,transparent);}
+.nav-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:15px 22px;}
+.logo{font-family:'Playfair Display','Amiri',Georgia,serif;font-weight:700;font-size:21px;letter-spacing:.4px;color:var(--deep);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:9px;}
+.logo .petal{font-size:17px;filter:saturate(.85);}
+.logo em{font-style:normal;color:var(--gold);}
+.nav-links{display:flex;gap:2px;margin-inline-start:auto;align-items:center;}
+.nav-links a{font-size:13px;font-weight:600;letter-spacing:.3px;color:var(--soft);text-decoration:none;padding:8px 14px;border-radius:999px;transition:all .18s ease;}
+.nav-links a:hover{background:var(--rose-mist);color:var(--deep);}
+.nav-links a.lang{border:1px solid var(--hairline);margin-inline-start:6px;}
+.nav-links a.cta{background:linear-gradient(135deg,#C26875,#8E3D4A);color:#fff;margin-inline-start:8px;padding:9px 20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),var(--sh-s);}
+.nav-links a.cta:hover{transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),var(--sh-m);filter:brightness(1.05);}
+@media(max-width:820px){.nav-links a:not(.cta):not(.lang){display:none;}}
+
+/* ============ typography ============ */
+h1{font-family:'Playfair Display','Amiri',Georgia,serif;font-weight:700;font-size:clamp(34px,6vw,50px);line-height:1.18;color:var(--deep);letter-spacing:-.5px;margin:6px 0 16px;}
+h2{font-family:'Playfair Display','Amiri',Georgia,serif;font-weight:600;font-size:clamp(22px,3.4vw,28px);color:var(--deep);margin:44px 0 16px;line-height:1.3;}
+.sub{color:var(--soft);font-size:17px;line-height:1.85;margin-bottom:26px;max-width:58ch;}
+p{margin-bottom:14px;}
+/* museum label: hairline — SMALL CAPS — hairline */
+.plaque{display:flex;align-items:center;gap:14px;margin:0 0 10px;}
+.plaque::before,.plaque::after{content:'';height:1px;flex:0 0 34px;background:linear-gradient(90deg,var(--champagne),transparent);}
+.plaque::after{background:linear-gradient(90deg,transparent,var(--champagne));flex:1;}
+.plaque span{font-size:11.5px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+
+/* ============ cards & frames ============ */
+.card{background:var(--porcelain);border:1px solid var(--hairline);border-radius:22px;box-shadow:var(--sh-s);transition:transform .25s ease,box-shadow .25s ease;}
+.frame-gold{position:relative;background:var(--porcelain);border:1px solid var(--champagne);border-radius:20px;box-shadow:var(--sh-m);}
+.frame-gold::before{content:'';position:absolute;inset:7px;border:1px solid rgba(185,146,86,.35);border-radius:14px;pointer-events:none;}
+.chip{display:inline-flex;align-items:center;background:transparent;border:1px solid var(--champagne);color:var(--deep);border-radius:999px;padding:6px 16px;font-size:13px;font-weight:600;letter-spacing:.3px;transition:all .18s;}
+.chip:hover{background:var(--gold-wash);}
+.chip.fill{background:var(--rose-mist);border-color:#F0DCDF;color:var(--deep);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#C26875,#8E3D4A);color:#fff;text-decoration:none;border-radius:15px;padding:14px 30px;font-size:15px;font-weight:700;letter-spacing:.2px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),var(--sh-m);transition:all .22s ease;border:none;cursor:pointer;}
+.btn:hover{transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),var(--sh-l);filter:brightness(1.05);}
+.btn.ghost{background:var(--porcelain);color:var(--deep);border:1px solid var(--champagne);box-shadow:var(--sh-s);}
+.btn.ghost:hover{background:var(--gold-wash);}
+
+/* ============ verdict quote (like the app) ============ */
+.quote{position:relative;background:linear-gradient(180deg,#FFFDF9,#FDF8F0);border:1px solid var(--champagne);border-radius:20px;padding:26px 30px 22px;box-shadow:var(--sh-m);}
+.quote::before{content:'';position:absolute;inset:7px;border:1px solid rgba(185,146,86,.3);border-radius:14px;pointer-events:none;}
+.quote .qmark{position:absolute;top:14px;inset-inline-end:22px;font-family:'Playfair Display',Georgia,serif;font-size:64px;line-height:1;color:rgba(185,146,86,.28);}
+.quote .qlabel{font-size:11.5px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.quote .qtext{font-family:'Playfair Display','Amiri',Georgia,serif;font-size:19px;line-height:1.75;color:#3d3236;font-weight:500;font-style:italic;}
+
+/* ============ phone frames for app screenshots ============ */
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:16px 0 8px;}
+.phone{position:relative;border-radius:34px;background:#231a1c;padding:11px;box-shadow:var(--sh-l);transition:transform .3s ease;}
+.phone:hover{transform:translateY(-5px) rotate(-.4deg);}
+.phone::before{content:'';position:absolute;top:5px;left:50%;transform:translateX(-50%);width:88px;height:5px;border-radius:99px;background:#4a3d40;z-index:2;}
+.phone img{width:100%;display:block;border-radius:24px;}
+.phone-cap{text-align:center;font-size:13px;color:var(--muted);margin-top:12px;letter-spacing:.2px;}
+@media(max-width:560px){.phones{gap:14px;}.phone{border-radius:26px;padding:8px;}.phone img{border-radius:19px;}}
+
+/* ============ scroll reveal ============ */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.65,.3,1),transform .7s cubic-bezier(.2,.65,.3,1);}
+.rv.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+
+/* ============ footer ============ */
+.foot{margin-top:80px;position:relative;background:linear-gradient(180deg,rgba(250,240,241,.0),rgba(246,231,233,.55));}
+.foot::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--champagne) 20%,var(--champagne) 80%,transparent);}
+.foot-in{max-width:1100px;margin:0 auto;padding:52px 22px 28px;display:grid;grid-template-columns:2.2fr 1fr 1fr;gap:34px;}
+@media(max-width:700px){.foot-in{grid-template-columns:1fr;gap:26px;}}
+.fbrand{font-family:'Playfair Display','Amiri',Georgia,serif;font-weight:700;font-size:24px;color:var(--deep);}
+.ftag{font-size:13.5px;color:var(--soft);margin-top:8px;max-width:38ch;line-height:1.8;}
+.foot h4{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:700;}
+.foot a{display:block;color:var(--soft);text-decoration:none;font-size:14px;margin-bottom:8px;transition:color .15s;}
+.foot a:hover{color:var(--deep);}
+.legal{max-width:1100px;margin:0 auto;padding:18px 22px 34px;border-top:1px solid rgba(235,223,214,.7);font-size:11.5px;color:var(--muted);line-height:1.8;}
+.legal a{color:inherit;}
+
+.crumb{font-size:12.5px;color:var(--muted);margin-bottom:14px;letter-spacing:.3px;}
+.crumb a{color:var(--muted);text-decoration:none;}.crumb a:hover{color:var(--deep);}
+.reg{font-size:.55em;vertical-align:super;color:var(--muted);font-weight:400;}
+.herocard{margin:20px 0 22px;}
+.herocard svg{width:100%;height:auto;display:block;border-radius:26px;box-shadow:var(--sh-l);}
+.lede{font-size:17.5px;line-height:1.9;color:#4a3e42;max-width:62ch;}
+.ing{list-style:none;display:grid;gap:10px;}
+.ing li{background:var(--porcelain);border:1px solid var(--hairline);border-radius:16px;padding:13px 18px;font-size:14.5px;box-shadow:var(--sh-s);transition:transform .2s,box-shadow .2s;}
+.ing li:hover{transform:translateY(-2px);box-shadow:var(--sh-m);}
+.ing li a{color:var(--deep);font-weight:700;text-decoration:none;border-bottom:1px solid var(--champagne);}
+.ing li .bl{display:block;color:var(--muted);font-size:13px;margin-top:3px;line-height:1.7;}
+.chips{display:flex;flex-wrap:wrap;gap:9px;}
+.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:11px;}
+.gitem{background:var(--porcelain);border:1px solid var(--hairline);border-radius:16px;padding:13px 17px;box-shadow:var(--sh-s);}
+.gitem .k{font-size:10.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:700;}
+.gitem .v{font-size:15.5px;font-weight:700;color:var(--deep);margin-top:3px;}
+.gate{margin:34px 0;padding:30px 32px;text-align:center;}
+.gate .qlabel{margin-bottom:8px;}
+.gate p{font-family:inherit;font-size:16.5px;color:#4a3e42;margin:0 auto 20px;max-width:48ch;line-height:1.85;}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.rel{font-size:14px;line-height:2.2;}
+.rel a{color:var(--deep);text-decoration:none;border-bottom:1px solid var(--champagne);margin-inline-end:14px;white-space:nowrap;}
+.rel a:hover{color:var(--rose);}
+.disc{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:30px;line-height:1.8;}
+.about{background:var(--porcelain);border:1px solid var(--hairline);border-radius:18px;padding:18px 22px;margin-top:18px;font-size:12.5px;color:var(--muted);line-height:1.85;box-shadow:var(--sh-s);}
+.about b{color:var(--deep);}.about a{color:var(--deep);}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Concentrated Ginseng Rejuvenating Water","brand":{"@type":"Brand","name":"Sulwhasoo"},"category":"toner","description":"Concentrated Ginseng Rejuvenating Water is a toner by Sulwhasoo, part of the Concentrated Ginseng range. It has a liquid texture and is warm scent, in a 150ml size.","inLanguage":"en","url":"https://mhsbloom.com/products/sulwhasoo-concentrated-ginseng-rejuvenating-water/","additionalProperty":[{"@type":"PropertyValue","name":"Key ingredient","value":"Korean Ginseng Actives (Ginsenomics)"},{"@type":"PropertyValue","name":"Key ingredient","value":"Saponin"},{"@type":"PropertyValue","name":"Key ingredient","value":"Hyaluronic Acid"}],"isRelatedTo":{"@type":"MobileApplication","name":"MHS BLOOM","operatingSystem":"iOS, Android","applicationCategory":"LifestyleApplication","url":"https://mhsbloom.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Concentrated Ginseng Rejuvenating Water","brand":{"@type":"Brand","name":"Sulwhasoo"},"category":"Toner","description":"Concentrated Ginseng Rejuvenating Water is a toner by Sulwhasoo, part of the Concentrated Ginseng range. It has a liquid texture and is warm scent, in a 150ml size.","inLanguage":"en","url":"https://mhsbloom.com/products/sulwhasoo-concentrated-ginseng-rejuvenating-water/","additionalProperty":[{"@type":"PropertyValue","name":"Key ingredient","value":"Korean Ginseng Actives (Ginsenomics)"},{"@type":"PropertyValue","name":"Key ingredient","value":"Saponin"},{"@type":"PropertyValue","name":"Key ingredient","value":"Hyaluronic Acid"}],"isRelatedTo":{"@type":"MobileApplication","name":"MHS BLOOM","operatingSystem":"iOS, Android","applicationCategory":"LifestyleApplication","url":"https://mhsbloom.com"}}</script>
 </head>
-<body><div class="wrap">
-<div class="top"><a class="brand" href="https://mhsbloom.com">MHS <span>BLOOM</span></a><a class="langlink" href="https://mhsbloom.com/ar/products/sulwhasoo-concentrated-ginseng-rejuvenating-water/">العربية</a></div>
-<div class="crumb"><a href="https://mhsbloom.com/">Home</a> › <a href="https://mhsbloom.com/products/">Products</a> › Sulwhasoo<sup class="reg">®</sup></div>
-<div class="kicker">Product, decoded</div>
-<h1>Concentrated Ginseng Rejuvenating Water</h1>
-<div class="herocard"><svg viewBox="0 0 720 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Concentrated Ginseng Rejuvenating Water">
-<rect width="720" height="440" rx="28" fill="#FDFBF9"/>
-<rect x="1.5" y="1.5" width="717" height="437" rx="27" fill="none" stroke="#EADFD8" stroke-width="3"/>
-<circle cx="640" cy="70" r="90" fill="#F3E2E4" opacity="0.55"/>
-<circle cx="680" cy="380" r="60" fill="#F6EBDD" opacity="0.6"/>
-<text x="60" y="86" font-family="Segoe UI, Arial" font-size="22" letter-spacing="6" fill="#B99256" font-weight="700">SULWHASOO</text>
-<text x="60" y="124" font-family="Segoe UI, Arial" font-size="17" letter-spacing="2" fill="#8A7F7B">M H S   B L O O M   ·   DECODED</text>
-<text x="60" y="190" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#9E4552">Concentrated Ginseng</text><text x="60" y="244" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#9E4552">Rejuvenating Water</text>
-<rect x="60" y="308" width="300" height="46" rx="23" fill="#F3E2E4"/><text x="210" y="338" text-anchor="middle" font-family="Segoe UI, Arial" font-size="19" fill="#9E4552" font-weight="600">Korean Ginseng Actives (Ginsenomics)</text><rect x="372" y="308" width="100.39999999999999" height="46" rx="23" fill="#F3E2E4"/><text x="422.2" y="338" text-anchor="middle" font-family="Segoe UI, Arial" font-size="19" fill="#9E4552" font-weight="600">Saponin</text><rect x="484.4" y="308" width="174" height="46" rx="23" fill="#F3E2E4"/><text x="571.4" y="338" text-anchor="middle" font-family="Segoe UI, Arial" font-size="19" fill="#9E4552" font-weight="600">Hyaluronic Acid</text>
-<text x="60" y="404" font-family="Segoe UI, Arial" font-size="19" fill="#8A7F7B">toner  ·  liquid  ·  150ml</text>
+<body>
+<nav class="nav"><div class="nav-in">
+<a class="logo" href="https://mhsbloom.com/"><span class="petal">🌸</span>MHS <em>BLOOM</em></a>
+<div class="nav-links">
+<a href="https://mhsbloom.com/products/">Products</a>
+<a href="https://mhsbloom.com/ingredients/">Ingredients</a>
+<a href="https://mhsbloom.com/answers/">Answers</a>
+<a href="https://mhsbloom.com/stats/">By the numbers</a>
+<a class="lang" href="https://mhsbloom.com/ar/products/sulwhasoo-concentrated-ginseng-rejuvenating-water/">العربية</a>
+<a class="cta" href="https://apps.apple.com/app/mhs-bloom/id6778931238">Get the app</a>
+</div></div></nav>
+<div class="wrap">
+<div class="crumb rv in"><a href="https://mhsbloom.com/">Home</a> › <a href="https://mhsbloom.com/products/">Products</a> › Sulwhasoo<sup class="reg">®</sup></div>
+<div class="plaque rv in"><span>PRODUCT · DECODED</span></div>
+<h1 class="rv in">Concentrated Ginseng Rejuvenating Water</h1>
+<div class="herocard rv in"><svg viewBox="0 0 720 448" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Concentrated Ginseng Rejuvenating Water">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFEFB"/><stop offset="1" stop-color="#FBF4EC"/></linearGradient>
+<radialGradient id="blush" cx="0.85" cy="0.12" r="0.5"><stop offset="0" stop-color="#F5E5E7"/><stop offset="1" stop-color="#F5E5E7" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="720" height="448" rx="26" fill="url(#bg)"/>
+<rect width="720" height="448" rx="26" fill="url(#blush)"/>
+<rect x="1" y="1" width="718" height="446" rx="25" fill="none" stroke="#E5D3B0" stroke-width="1.6"/>
+<rect x="12" y="12" width="696" height="424" rx="17" fill="none" stroke="#B99256" stroke-opacity="0.32" stroke-width="1"/>
+<text x="656" y="76" text-anchor="end" font-size="30" opacity="0.85">🌸</text>
+<text x="64" y="88" font-family="Inter, Tajawal, Arial, sans-serif" font-size="20" letter-spacing="7" fill="#B99256" font-weight="700">SULWHASOO</text>
+<text x="64" y="126" font-family="Inter, Tajawal, Arial, sans-serif" font-size="14.5" letter-spacing="3.5" fill="#93848A" font-weight="600">M H S   B L O O M   ·   D E C O D E D</text>
+<text x="64" y="196" font-family="Playfair Display, Amiri, Georgia, serif" font-size="46" font-weight="600" fill="#8E3D4A">Concentrated Ginseng</text><text x="64" y="254" font-family="Playfair Display, Amiri, Georgia, serif" font-size="46" font-weight="600" fill="#8E3D4A">Rejuvenating Water</text>
+<rect x="64" y="316" width="300" height="46" rx="23" fill="none" stroke="#E5D3B0" stroke-width="1.4"/><text x="214" y="346" text-anchor="middle" font-family="Inter, Tajawal, Arial, sans-serif" font-size="18.5" fill="#8E3D4A" font-weight="600">Korean Ginseng Actives (Ginsenomics)</text><rect x="376" y="316" width="107.2" height="46" rx="23" fill="none" stroke="#E5D3B0" stroke-width="1.4"/><text x="429.6" y="346" text-anchor="middle" font-family="Inter, Tajawal, Arial, sans-serif" font-size="18.5" fill="#8E3D4A" font-weight="600">Saponin</text>
+<line x1="64" y1="394" x2="200" y2="394" stroke="#E5D3B0" stroke-width="1"/>
+<text x="64" y="424" font-family="Inter, Tajawal, Arial, sans-serif" font-size="18" letter-spacing="1" fill="#93848A">Toner   ·   Liquid   ·   150ml</text>
 </svg></div>
-<p class="lede">Concentrated Ginseng Rejuvenating Water is a toner by Sulwhasoo<sup class="reg">®</sup>, part of the Concentrated Ginseng range. It has a liquid texture and is warm scent, in a 150ml size.</p>
-<h2>Key ingredients</h2><ul class="ing"><li>Korean Ginseng Actives (Ginsenomics)</li><li>Saponin</li><li><a href="https://mhsbloom.com/ingredients/sodium-hyaluronate/">Hyaluronic Acid</a><span class="bl">A humectant that draws and holds water in the upper skin layers, leaving skin feeling plumper and more hydrated.</span></li></ul>
-<h2>Best suited to</h2><p>Mature or aging-concerned skin; all types.</p>
-<h2>Focus areas</h2><div class="chips"><span class="chip">dehydrated skin</span><span class="chip">the look of aging</span><span class="chip">dullness</span><span class="chip">dryness</span></div>
-<h2>At a glance</h2>
-<div class="glance">
-<div class="gitem"><div class="k">Format</div><div class="v">liquid</div></div>
-<div class="gitem"><div class="k">Fragrance</div><div class="v">warm scent</div></div>
+<p class="lede rv">Concentrated Ginseng Rejuvenating Water is a toner by Sulwhasoo<sup class="reg">®</sup>, part of the Concentrated Ginseng range. It has a liquid texture and is warm scent, in a 150ml size.</p>
+<div class="plaque rv"><span>KEY INGREDIENTS</span></div><ul class="ing rv"><li>Korean Ginseng Actives (Ginsenomics)</li><li>Saponin</li><li><a href="https://mhsbloom.com/ingredients/sodium-hyaluronate/">Hyaluronic Acid</a><span class="bl">A humectant that draws and holds water in the upper skin layers, leaving skin feeling plumper and more hydrated.</span></li></ul>
+<div class="plaque rv"><span>BEST SUITED TO</span></div><p class="rv">Mature or aging-concerned skin; all types.</p>
+<div class="plaque rv"><span>FOCUS AREAS</span></div><div class="chips rv"><span class="chip fill">dehydrated skin</span><span class="chip fill">the look of aging</span><span class="chip fill">dullness</span><span class="chip fill">dryness</span></div>
+<div class="plaque rv"><span>AT A GLANCE</span></div>
+<div class="glance rv">
+<div class="gitem"><div class="k">Format</div><div class="v">Liquid</div></div>
+<div class="gitem"><div class="k">Fragrance</div><div class="v">Warm scent</div></div>
 <div class="gitem"><div class="k">Size</div><div class="v">150ml</div></div>
-<div class="gitem"><div class="k">When to use</div><div class="v">morning and night</div></div>
-<div class="gitem"><div class="k">Price tier</div><div class="v">splurge</div></div>
+<div class="gitem"><div class="k">When</div><div class="v">Morning &amp; night</div></div>
+<div class="gitem"><div class="k">Tier</div><div class="v">Splurge</div></div>
 </div>
-<h2>Inside the MHS BLOOM app</h2>
-<div class="appshots">
-<figure><img src="https://mhsbloom.com/assets/app-product.png" alt="MHS BLOOM app — product decoded" loading="lazy" width="640" height="1137"><figcaption>Every product decoded — ingredients, skin fit, format</figcaption></figure>
-<figure><img src="https://mhsbloom.com/assets/app-verdict.png" alt="MHS BLOOM app — BLOOM's verdict" loading="lazy" width="640" height="1137"><figcaption>BLOOM's verdict: should you actually buy it?</figcaption></figure>
+<div class="plaque rv"><span>INSIDE THE APP</span></div>
+<div class="phones rv">
+<div><div class="phone"><img src="https://mhsbloom.com/assets/app-product.png" alt="MHS BLOOM app — product decoded" loading="lazy" width="640" height="1137"></div><div class="phone-cap">Every product decoded — ingredients, skin fit, format</div></div>
+<div><div class="phone"><img src="https://mhsbloom.com/assets/app-verdict.png" alt="MHS BLOOM app — BLOOM's verdict" loading="lazy" width="640" height="1137"></div><div class="phone-cap">BLOOM's verdict: should you actually buy it?</div></div>
 </div>
-<div class="gate"><div class="lock">🔒 IN THE APP</div><p>Is Concentrated Ginseng Rejuvenating Water right for YOUR skin? BLOOM's full verdict — plus how it compares and fits your routine — is in the app.</p>
-<div class="cta"><a href="https://apps.apple.com/app/mhs-bloom/id6778931238">Get MHS BLOOM</a><a class="alt" href="https://play.google.com/store/apps/details?id=com.mhsynaptix.bloom">Also on Android</a></div></div>
-<h2>More from Sulwhasoo<sup class="reg">®</sup></h2><div class="rel"><a href="https://mhsbloom.com/products/sulwhasoo-first-care-activating-serum/">First Care Activating Serum</a> · <a href="https://mhsbloom.com/products/sulwhasoo-first-care-activating-mask/">First Care Activating Mask</a> · <a href="https://mhsbloom.com/products/sulwhasoo-concentrated-ginseng-rejuvenating-serum/">Concentrated Ginseng Rejuvenating Serum</a> · <a href="https://mhsbloom.com/products/sulwhasoo-concentrated-ginseng-rejuvenating-cream/">Concentrated Ginseng Rejuvenating Cream</a> · <a href="https://mhsbloom.com/products/sulwhasoo-concentrated-ginseng-rejuvenating-cream-rich/">Concentrated Ginseng Rejuvenating Cream Rich</a></div>
-<div class="disc">This page describes catalogued attributes of the product for reference; it is not an efficacy or safety claim, and not medical advice. Ingredient lists follow the manufacturer's packaging.</div>
-<div class="about"><b>About this page.</b> MHS BLOOM is an <b>independent</b> skincare reference. This is an independent editorial review for identification and reference only — we are <b>not affiliated with, authorised by, endorsed by, or sponsored by</b> Sulwhasoo or any brand or manufacturer, and no brand can pay to change a rating. All brand and product names are the trademarks or registered trademarks of their respective owners, used here for identification purposes only. Ingredient details follow the manufacturer's packaging and may change — always check the product's own label. Questions, corrections or complaints: <a href="mailto:contact@mhsbloom.com?subject=MHS%20BLOOM%20—%20Concentrated%20Ginseng%20Rejuvenating%20Water">contact@mhsbloom.com</a>.</div>
-<footer>© 2026 MH-SYNAPTIX · <a href="https://mhsbloom.com/">mhsbloom.com</a> · <a href="https://www.instagram.com/mhs_bloom">Instagram</a> · <a href="mailto:contact@mhsbloom.com">contact@mhsbloom.com</a></footer></div></body></html>
+<div class="quote gate rv">
+<span class="qmark">"</span>
+<div class="qlabel">🌸 BLOOM'S VERDICT</div>
+<p>Is Concentrated Ginseng Rejuvenating Water right for YOUR skin? The full verdict — and how it compares and fits your routine — lives in the app.</p>
+<div class="cta-row"><a class="btn" href="https://apps.apple.com/app/mhs-bloom/id6778931238">Get MHS BLOOM</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.mhsynaptix.bloom">Also on Android</a></div>
+</div>
+<div class="plaque rv"><span>MORE FROM SULWHASOO</span></div><div class="rel rv"><a href="https://mhsbloom.com/products/sulwhasoo-first-care-activating-serum/">First Care Activating Serum</a> <a href="https://mhsbloom.com/products/sulwhasoo-first-care-activating-mask/">First Care Activating Mask</a> <a href="https://mhsbloom.com/products/sulwhasoo-concentrated-ginseng-rejuvenating-serum/">Concentrated Ginseng Rejuvenating Serum</a> <a href="https://mhsbloom.com/products/sulwhasoo-concentrated-ginseng-rejuvenating-cream/">Concentrated Ginseng Rejuvenating Cream</a> <a href="https://mhsbloom.com/products/sulwhasoo-concentrated-ginseng-rejuvenating-cream-rich/">Concentrated Ginseng Rejuvenating Cream Rich</a></div>
+<div class="disc rv">This page describes catalogued attributes of the product for reference; it is not an efficacy or safety claim, and not medical advice. Ingredient details follow the manufacturer's packaging.</div>
+<div class="about rv"><b>About this page.</b> MHS BLOOM is an <b>independent</b> skincare reference. This is an independent editorial review for identification and reference only — we are <b>not affiliated with, authorised by, endorsed by, or sponsored by</b> Sulwhasoo or any brand or manufacturer, and no brand can pay to change a rating. All brand and product names are the trademarks or registered trademarks of their respective owners, used here for identification purposes only. Ingredient details follow the manufacturer's packaging and may change — always check the product's own label. Questions, corrections or complaints: <a href="mailto:contact@mhsbloom.com?subject=MHS%20BLOOM%20—%20Concentrated%20Ginseng%20Rejuvenating%20Water">contact@mhsbloom.com</a>.</div>
+</div>
+<footer class="foot"><div class="foot-in">
+<div><div class="fbrand">MHS BLOOM</div><div class="ftag">An independent skincare reference — 1,682 products decoded, every claim sourced. No brand can pay to change a rating.</div></div>
+<div><h4>Explore</h4><a href="https://mhsbloom.com/products/">Products</a><a href="https://mhsbloom.com/ingredients/">Ingredients</a><a href="https://mhsbloom.com/answers/">Answers</a><a href="https://mhsbloom.com/stats/">By the numbers</a></div>
+<div><h4>Get the app</h4><a href="https://apps.apple.com/app/mhs-bloom/id6778931238">iPhone & iPad — App Store</a><a href="https://play.google.com/store/apps/details?id=com.mhsynaptix.bloom">Android — Google Play</a>
+<h4 style="margin-top:18px">Contact</h4><a href="mailto:contact@mhsbloom.com">contact@mhsbloom.com</a><a href="https://www.instagram.com/mhs_bloom">Instagram</a></div>
+</div><div class="legal">© 2026 MH-SYNAPTIX · MHS BLOOM is an independent editorial reference; we are not affiliated with, endorsed by, or sponsored by any brand. All brand and product names are trademarks or registered trademarks of their respective owners, used for identification only. Cosmetic reference — not medical advice. · <a href="https://drmahroust3a-stack.github.io/MHS-BLOOM-LEGAL/privacy-policy.html">Privacy</a> · <a href="https://drmahroust3a-stack.github.io/MHS-BLOOM-LEGAL/terms-of-service.html">Terms</a></div></footer>
+<script>(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});})();</script></body></html>
