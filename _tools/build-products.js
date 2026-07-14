@@ -211,17 +211,30 @@ ${related ? `${plaque(L.from + " " + esc(String(brand).toUpperCase()))}<div clas
 ${T.footer(lang)}
 ${T.REVEAL_JS}`;
 
+  // ItemPage ABOUT a Product — not a top-level Product. We are a neutral
+  // reference: no offers (we don't sell), no numeric ratings (verdicts are
+  // qualitative + gated). A bare top-level Product without offers/review/
+  // aggregateRating gets flagged as invalid by Search Console's Product-
+  // snippets validation (GSC issue, Jul 2026); nesting the entity under
+  // `about` keeps the full semantics for AI/answer engines while correctly
+  // describing the page as a reference page rather than a merchant listing.
   const jsonld = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: p.name,
-    brand: { "@type": "Brand", name: p._brand },
-    category: clabel(CAT, p.categoryId, "en"),
+    "@type": "ItemPage",
+    name: `${p.name} — ${p._brand}`,
     description: ledeDesc,
     inLanguage: lang,
     url: canonical,
-    additionalProperty: (p.keyIngredients || []).map((k) => ({ "@type": "PropertyValue", name: "Key ingredient", value: k })),
-    isRelatedTo: { "@type": "MobileApplication", name: "MHS BLOOM", operatingSystem: "iOS, Android", applicationCategory: "LifestyleApplication", url: SITE },
+    isPartOf: { "@type": "WebSite", name: "MHS BLOOM", url: SITE },
+    about: {
+      "@type": "Product",
+      name: p.name,
+      brand: { "@type": "Brand", name: p._brand },
+      category: clabel(CAT, p.categoryId, "en"),
+      description: ledeDesc,
+      additionalProperty: (p.keyIngredients || []).map((k) => ({ "@type": "PropertyValue", name: "Key ingredient", value: k })),
+      isRelatedTo: { "@type": "MobileApplication", name: "MHS BLOOM", operatingSystem: "iOS, Android", applicationCategory: "LifestyleApplication", url: SITE },
+    },
   };
 
   return `<!DOCTYPE html>
