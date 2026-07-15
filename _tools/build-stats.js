@@ -97,6 +97,9 @@ ${items}
 `;
   // strip HTML tags for meta/JSON-LD plain text
   const plain = (s) => s.replace(/<[^>]+>/g, "");
+  // license: these are descriptive counts we publish so journalists and answer
+  // engines can cite them — CC BY 4.0 (free to reuse with attribution) states
+  // that plainly and clears Search Console's Dataset "missing license" notice.
   const jsonld = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -104,7 +107,10 @@ ${items}
     name: L.title,
     description: plain(L.sub),
     url: canonical,
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    isAccessibleForFree: true,
     creator: { "@type": "Organization", name: "MHS BLOOM", url: SITE },
+    publisher: { "@type": "Organization", name: "MHS BLOOM", url: SITE },
     variableMeasured: STATS.map((s) => plain(en ? s.en : s.ar)),
   };
   return `<!DOCTYPE html>
