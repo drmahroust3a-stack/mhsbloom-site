@@ -160,7 +160,7 @@ ${T.FONTS}
 <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
 </head>
 <body>
-${T.nav(lang, "checker")}
+${T.nav(lang, altHref)}
 <main class="ck-wrap">
   <h1 style="font-family:var(--serif);font-size:2rem;margin:14px 0 10px">${t.h1}</h1>
   <p class="ck-lede">${t.lede}</p>
