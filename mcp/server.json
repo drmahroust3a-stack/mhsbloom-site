@@ -1,0 +1,16 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.json",
+  "name": "com.mhsbloom/neutral-skincare-reference",
+  "description": "Query MHS BLOOM's independent, payment-blind reference of 1,682 dermacosmetic products — by product, ingredient, concern, category or brand. Neutral descriptive facts, every result links back to its reference page.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/drmahroust3a-stack/mhsbloom-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://europe-west3-mhs-bloom.cloudfunctions.net/bloomMcp"
+    }
+  ]
+}

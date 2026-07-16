@@ -25,6 +25,11 @@ const serverManifest = {
 };
 fs.mkdirSync(path.join(ROOT, ".well-known", "mcp"), { recursive: true });
 fs.writeFileSync(path.join(ROOT, ".well-known", "mcp", "server.json"), JSON.stringify(serverManifest, null, 2), "utf8");
+// Also on a non-dot path (GitHub Pages/Jekyll skips dot-dirs unless .nojekyll).
+fs.mkdirSync(path.join(ROOT, "mcp"), { recursive: true });
+fs.writeFileSync(path.join(ROOT, "mcp", "server.json"), JSON.stringify(serverManifest, null, 2), "utf8");
+// Disable Jekyll so .well-known and all files are served verbatim.
+fs.writeFileSync(path.join(ROOT, ".nojekyll"), "", "utf8");
 
 // ---- connect snippets ----
 const claudeCfg = JSON.stringify({ mcpServers: { "mhs-bloom": { command: "npx", args: ["-y", "mcp-remote", MCP_URL] } } }, null, 2);
