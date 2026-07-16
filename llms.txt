@@ -1,31 +1,6 @@
 # MHS BLOOM
 
-> A bilingual (English/Arabic) skincare reference. 19 sourced ingredient explainers, a growing answers hub, and 1,682 decoded products. Every claim is referenced to a primary source. No brand can pay to change a rating.
-
-## Data
-
-- [Skincare by the Numbers](https://mhsbloom.com/stats/): descriptive facts from the reference of 1,682 products across 82 brands.
-
-## Answers
-
-- [Can I use retinaldehyde (retinal) together with niacinamide?](https://mhsbloom.com/answers/can-i-use-retinaldehyde-together-with-niacinamide/)
-- [Should I use bakuchiol and a retinoid (retinol/retinal) together?](https://mhsbloom.com/answers/should-i-use-bakuchiol-and-a-retinoid-together/)
-- [Can I layer several brightening actives together, like alpha arbutin, tranexamic acid, niacinamide and azelaic acid?](https://mhsbloom.com/answers/can-i-layer-several-brightening-actives-together-like-alpha-arbutin-tr/)
-- [What is niacinamide and what does it do for skin?](https://mhsbloom.com/answers/what-is-niacinamide-and-what-does-it-do-for-skin/)
-- [Which ingredient helps the look of dryness?](https://mhsbloom.com/answers/which-ingredient-helps-the-look-of-dryness/)
-- [Which ingredient helps the look of blemished-looking skin?](https://mhsbloom.com/answers/which-ingredient-helps-the-look-of-blemished-looking-skin/)
-- [Which ingredient helps the look of fine lines?](https://mhsbloom.com/answers/which-ingredient-helps-the-look-of-fine-lines/)
-- [Which skincare ingredients should I be careful with during pregnancy or breastfeeding?](https://mhsbloom.com/answers/which-skincare-ingredients-should-i-be-careful-with-during-pregnancy-o/)
-- [Which ingredients can make my skin more sensitive to the sun?](https://mhsbloom.com/answers/which-ingredients-can-make-my-skin-more-sensitive-to-the-sun/)
-- [Should I patch-test new skincare, and which ingredients most need it?](https://mhsbloom.com/answers/should-i-patch-test-new-skincare-and-which-ingredients-most-need-it/)
-- [Who should be careful with salicylic acid?](https://mhsbloom.com/answers/who-should-be-careful-with-salicylic-acid/)
-- [Is Centella (Cica) safe, and who should be careful with it?](https://mhsbloom.com/answers/is-centella-safe-and-who-should-be-careful-with-it/)
-- [I'm new to retinoids — how do I start one gently without wrecking my skin?](https://mhsbloom.com/answers/im-new-to-retinoids-how-do-i-start-one-gently-without-wrecking-my-skin/)
-- [Which active ingredients should I use in the morning and which at night?](https://mhsbloom.com/answers/which-active-ingredients-should-i-use-in-the-morning-and-which-at-nigh/)
-- [Why does everyone say I must wear sunscreen when I use a retinoid, exfoliant or brightening active?](https://mhsbloom.com/answers/why-does-everyone-say-i-must-wear-sunscreen-when-i-use-a-retinoid-exfo/)
-- [What's the safest way to add a new active to my routine as a beginner?](https://mhsbloom.com/answers/whats-the-safest-way-to-add-a-new-active-to-my-routine-as-a-beginner/)
-- [Is there a gentler, retinol-like option if my skin is sensitive or I'm nervous about retinoids?](https://mhsbloom.com/answers/is-there-a-gentler-retinol-like-option-if-my-skin-is-sensitive-or-im-n/)
-- [Can I use a retinoid and an exfoliating acid like salicylic acid at the same time?](https://mhsbloom.com/answers/can-i-use-a-retinoid-and-an-exfoliating-acid-like-salicylic-acid-at-th/)
+> A bilingual (English/Arabic) skincare reference. 19 sourced ingredient explainers and 1,682 decoded products. Every claim is referenced to a primary source. No brand can pay to change a rating.
 
 ## Ingredients
 
@@ -48,10 +23,6 @@
 - [Urea (Carbamide)](https://mhsbloom.com/ingredients/urea/): A water-binding humectant at lower strengths and a gentle keratolytic (softens and helps shed rough, dry-looking skin) a
 - [Vitamin E (alpha-tocopherol)](https://mhsbloom.com/ingredients/tocopherol/): A fat-soluble antioxidant that supports the look of the skin's lipid barrier and helps neutralize free radicals, helping
 - [Zinc Oxide (mineral / inorganic UV filter)](https://mhsbloom.com/ingredients/zinc-oxide/): A mineral UV filter that helps shield the look of skin across both UVA and UVB; also used as a gentle skin protectant in
-
-## Products
-
-- [Products, decoded](https://mhsbloom.com/products/): 1682 skincare products decoded (brand, key ingredients, who it suits).
 
 ## About
 

@@ -125,14 +125,15 @@ const REVEAL_JS = `<script>(function(){var io=new IntersectionObserver(function(
 function nav(lang, altHref) {
   const en = lang === "en";
   const L = en
-    ? { p: "Products", i: "Ingredients", a: "Answers", s: "By the numbers", get: "Get the app", lang: "العربية", home: SITE + "/" }
-    : { p: "المنتجات", i: "المكونات", a: "الإجابات", s: "بالأرقام", get: "حمّلي التطبيق", lang: "English", home: SITE + "/ar/" };
+    ? { p: "Products", i: "Ingredients", c: "Checker", a: "Answers", s: "By the numbers", get: "Get the app", lang: "العربية", home: SITE + "/" }
+    : { p: "المنتجات", i: "المكونات", c: "الفاحص", a: "الإجابات", s: "بالأرقام", get: "حمّلي التطبيق", lang: "English", home: SITE + "/ar/" };
   const pre = en ? SITE : SITE + "/ar";
   return `<nav class="nav"><div class="nav-in">
 <a class="logo" href="${L.home}"><span class="petal">🌸</span>MHS <em>BLOOM</em></a>
 <div class="nav-links">
 <a href="${pre}/products/">${L.p}</a>
 <a href="${pre}/ingredients/">${L.i}</a>
+<a href="${pre}/ingredient-checker/">${L.c}</a>
 <a href="${pre}/answers/">${L.a}</a>
 <a href="${pre}/stats/">${L.s}</a>
 <a class="lang" href="${altHref}">${L.lang}</a>
@@ -144,11 +145,11 @@ function footer(lang) {
   const en = lang === "en";
   const pre = en ? SITE : SITE + "/ar";
   const L = en
-    ? { tag: "An independent skincare reference — 1,682 products decoded, every claim sourced. No brand can pay to change a rating.", exp: "Explore", app: "Get the app", con: "Contact", p: "Products", i: "Ingredients", a: "Answers", s: "By the numbers", ios: "iPhone & iPad — App Store", and: "Android — Google Play", legal: `© 2026 MH-SYNAPTIX · MHS BLOOM is an independent editorial reference; we are not affiliated with, endorsed by, or sponsored by any brand. All brand and product names are trademarks or registered trademarks of their respective owners, used for identification only. Cosmetic reference — not medical advice.`, priv: "Privacy", terms: "Terms" }
-    : { tag: "مرجع مستقل للعناية بالبشرة — ١٦٨٢ منتج مبسّط، وكل معلومة بمصدرها. ولا براند يقدر يدفع عشان يغيّر تقييم.", exp: "استكشفي", app: "حمّلي التطبيق", con: "تواصل", p: "المنتجات", i: "المكونات", a: "الإجابات", s: "بالأرقام", ios: "آيفون وآيباد — App Store", and: "أندرويد — Google Play", legal: `© 2026 MH-SYNAPTIX · MHS BLOOM مرجع تحريري مستقل؛ لسنا تابعين لأي علامة تجارية ولا ممولين منها. جميع أسماء العلامات والمنتجات علامات تجارية لأصحابها وتُستخدم للتعريف فقط. مرجع تجميلي — ليس نصيحة طبية.`, priv: "الخصوصية", terms: "الشروط" };
+    ? { tag: "An independent skincare reference — 1,682 products decoded, every claim sourced. No brand can pay to change a rating.", exp: "Explore", app: "Get the app", con: "Contact", p: "Products", i: "Ingredients", c: "Ingredient Checker", a: "Answers", s: "By the numbers", ios: "iPhone & iPad — App Store", and: "Android — Google Play", legal: `© 2026 MH-SYNAPTIX · MHS BLOOM is an independent editorial reference; we are not affiliated with, endorsed by, or sponsored by any brand. All brand and product names are trademarks or registered trademarks of their respective owners, used for identification only. Cosmetic reference — not medical advice.`, priv: "Privacy", terms: "Terms" }
+    : { tag: "مرجع مستقل للعناية بالبشرة — ١٦٨٢ منتج مبسّط، وكل معلومة بمصدرها. ولا براند يقدر يدفع عشان يغيّر تقييم.", exp: "استكشفي", app: "حمّلي التطبيق", con: "تواصل", p: "المنتجات", i: "المكونات", c: "فاحص المكوّنات", a: "الإجابات", s: "بالأرقام", ios: "آيفون وآيباد — App Store", and: "أندرويد — Google Play", legal: `© 2026 MH-SYNAPTIX · MHS BLOOM مرجع تحريري مستقل؛ لسنا تابعين لأي علامة تجارية ولا ممولين منها. جميع أسماء العلامات والمنتجات علامات تجارية لأصحابها وتُستخدم للتعريف فقط. مرجع تجميلي — ليس نصيحة طبية.`, priv: "الخصوصية", terms: "الشروط" };
   return `<footer class="foot"><div class="foot-in">
 <div><div class="fbrand">MHS BLOOM</div><div class="ftag">${L.tag}</div></div>
-<div><h4>${L.exp}</h4><a href="${pre}/products/">${L.p}</a><a href="${pre}/ingredients/">${L.i}</a><a href="${pre}/answers/">${L.a}</a><a href="${pre}/stats/">${L.s}</a></div>
+<div><h4>${L.exp}</h4><a href="${pre}/products/">${L.p}</a><a href="${pre}/ingredients/">${L.i}</a><a href="${pre}/ingredient-checker/">${L.c}</a><a href="${pre}/answers/">${L.a}</a><a href="${pre}/stats/">${L.s}</a></div>
 <div><h4>${L.app}</h4><a href="${APP_STORE}">${L.ios}</a><a href="${PLAY_STORE}">${L.and}</a>
 <h4 style="margin-top:18px">${L.con}</h4><a href="mailto:contact@mhsbloom.com">contact@mhsbloom.com</a><a href="https://www.instagram.com/mhs_bloom">Instagram</a></div>
 </div><div class="legal">${L.legal} · <a href="https://drmahroust3a-stack.github.io/MHS-BLOOM-LEGAL/privacy-policy.html">${L.priv}</a> · <a href="https://drmahroust3a-stack.github.io/MHS-BLOOM-LEGAL/terms-of-service.html">${L.terms}</a></div></footer>`;
