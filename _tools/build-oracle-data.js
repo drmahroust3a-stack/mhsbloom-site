@@ -5,6 +5,11 @@ const path = require('path');
 const brands = require('../_data/catalog-export.json');
 
 const clean = (s) => (s == null ? '' : String(s).replace(/\s+/g, ' ').trim());
+// Exact active dose stays app-gated (GATE_DOSE); NAMES keep their numbers.
+const stripDose = (s) => clean(String(s).replace(/\s*\(?\d+(?:\.\d+)?\s?%\)?/g, ' '));
+const softenClaims = (s) => clean(String(s)
+  .replace(/\bclinical[- ]strength\b/gi, '').replace(/\bmaximum[- ]strength\b/gi, '')
+  .replace(/\bpotent\b/gi, '').replace(/\s+([,.])/g, '$1'));
 const csvCell = (s) => {
   const v = clean(s);
   return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
@@ -18,13 +23,13 @@ for (const b of brands) {
   const origin = clean(b.country);
   for (const p of (b.products || [])) {
     if (p.isActive === false) continue;
-    const ings = Array.isArray(p.keyIngredients) ? p.keyIngredients.map(clean).filter(Boolean) : [];
+    const ings = Array.isArray(p.keyIngredients) ? p.keyIngredients.map(stripDose).filter(Boolean) : [];
     const concerns = Array.isArray(p.skinConcerns) ? p.skinConcerns.map(clean).filter(Boolean) : [];
     rows.push([
       csvCell(p.name), csvCell(brandEn), csvCell(brandAr), csvCell(origin),
       csvCell(p.categoryId), csvCell(p.line), csvCell(p.size),
       csvCell(ings.join('; ')), csvCell(concerns.join('; ')),
-      csvCell(p.skinType && (p.skinType.en || p.skinType)), csvCell(p.texture),
+      csvCell(softenClaims(clean(p.skinType && (p.skinType.en || p.skinType)))), csvCell(p.texture),
       csvCell(p.scentProfile), csvCell(p.whenToUse), csvCell(p.priceRange),
     ].join(','));
     // compact line for the GPT (name | brand | ingredients | concerns | fragrance | price band)

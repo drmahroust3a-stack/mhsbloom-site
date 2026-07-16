@@ -24,6 +24,16 @@ const slugById = Object.fromEntries(meta.map((m) => [m.id, m.slug]));
 
 const clean = (s) => (s == null ? "" : String(s).replace(/\s+/g, " ").trim());
 const esc = (s) => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+// Strip standalone active concentrations (dose) from ingredient fields — exact
+// dose stays app-gated (GATE_DOSE, Jul-11). Product NAMES keep their numbers
+// (manufacturer's, front-of-pack). "100% Mineral Filters" → "Mineral Filters".
+const stripDose = (s) => clean(String(s).replace(/\s*\(?\d+(?:\.\d+)?\s?%\)?/g, " "));
+// Keep our own descriptive copy centrist — drop strength boasts.
+const softenClaims = (s) => clean(String(s)
+  .replace(/\bclinical[- ]strength\b/gi, "")
+  .replace(/\bmaximum[- ]strength\b/gi, "")
+  .replace(/\bpotent\b/gi, "")
+  .replace(/\s+([,.])/g, "$1"));
 
 // ---- build the records (free-tier only) ----
 const records = [];
@@ -41,9 +51,9 @@ for (const b of brandsRaw) {
       brand_ar: clean(b.brandNameAr),
       brand_origin: clean(b.country),
       category: clean(p.categoryId),
-      key_ingredients: Array.isArray(p.keyIngredients) ? p.keyIngredients.map(clean).filter(Boolean) : [],
+      key_ingredients: Array.isArray(p.keyIngredients) ? p.keyIngredients.map(stripDose).filter(Boolean) : [],
       concerns: Array.isArray(p.skinConcerns) ? p.skinConcerns.map(clean).filter(Boolean) : [],
-      skin_type: clean(p.skinType && (p.skinType.en || p.skinType)),
+      skin_type: softenClaims(clean(p.skinType && (p.skinType.en || p.skinType))),
       texture: clean(p.texture),
       ...(fragrance ? { fragrance } : {}),
       price_band: clean(p.priceRange),
