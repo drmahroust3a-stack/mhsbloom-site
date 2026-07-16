@@ -9,7 +9,7 @@ function dirSlugs(rel) {
   const p = path.join(ROOT, rel);
   return fs.existsSync(p) ? fs.readdirSync(p).filter((d) => fs.existsSync(path.join(p, d, "index.html"))) : [];
 }
-const urls = [`${SITE}/`, `${SITE}/ar/`, `${SITE}/ingredients/`, `${SITE}/ar/ingredients/`, `${SITE}/answers/`, `${SITE}/ar/answers/`, `${SITE}/stats/`, `${SITE}/ar/stats/`, `${SITE}/products/`, `${SITE}/ar/products/`, `${SITE}/ingredient-checker/`, `${SITE}/ar/ingredient-checker/`, `${SITE}/data/`, `${SITE}/ar/data/`];
+const urls = [`${SITE}/`, `${SITE}/ar/`, `${SITE}/ingredients/`, `${SITE}/ar/ingredients/`, `${SITE}/answers/`, `${SITE}/ar/answers/`, `${SITE}/stats/`, `${SITE}/ar/stats/`, `${SITE}/products/`, `${SITE}/ar/products/`, `${SITE}/ingredient-checker/`, `${SITE}/ar/ingredient-checker/`, `${SITE}/data/`, `${SITE}/ar/data/`, `${SITE}/mcp/`];
 for (const s of dirSlugs("ingredients")) urls.push(`${SITE}/ingredients/${s}/`);
 for (const s of dirSlugs("ar/ingredients")) urls.push(`${SITE}/ar/ingredients/${s}/`);
 for (const s of dirSlugs("answers")) urls.push(`${SITE}/answers/${s}/`);
