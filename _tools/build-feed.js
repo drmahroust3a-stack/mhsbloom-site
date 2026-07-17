@@ -50,6 +50,7 @@ for (const b of brandsRaw) {
       brand: clean(b.brandName),
       brand_ar: clean(b.brandNameAr),
       brand_origin: clean(b.country),
+      line: clean(p.line), // Latin product line — the cross-language match anchor
       category: clean(p.categoryId),
       key_ingredients: Array.isArray(p.keyIngredients) ? p.keyIngredients.map(stripDose).filter(Boolean) : [],
       concerns: Array.isArray(p.skinConcerns) ? p.skinConcerns.map(clean).filter(Boolean) : [],
